@@ -1,4 +1,5 @@
 import React from 'react'
+import './index.css'
 
 const Editor = () => {
     return(
@@ -14,7 +15,13 @@ const Editor = () => {
                         <button className='editor-btn editor-run'>Run {'>'} </button>
                         <button className='editor-btn editor-reset'>Reset {'>'}</button>
                     </div>
-                    <div className="editor-footer-right"></div>
+                    <div className="editor-footer-right">
+                        <div className="editor-console">
+                            <ul className="editor-console-logs">
+
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
