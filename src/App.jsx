@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import { HomePage } from './pages'
+import { HomePage, GamePage } from './pages'
 import { NavBar } from './layout'
 
 import './assets/style.css'
@@ -12,7 +12,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<HomePage />}/>
-          </Route >
+          <Route path="/play" element={<GamePage />}/>
+        </Route >
       </Routes>
     </>
   )
