@@ -2,7 +2,22 @@ import React from 'react'
 
 const Editor = () => {
     return(
-        <div>EDITOR GOES HERE</div>
+        <div className='editor'>
+            <div className="editor-wrapper">
+                <div className="editor-body">
+                    <div className="editor-code">
+
+                    </div>
+                </div>
+                <div className="editor-footer">
+                    <div className="editor-footer-left">
+                        <button className='editor-btn editor-run'>Run {'>'} </button>
+                        <button className='editor-btn editor-reset'>Reset {'>'}</button>
+                    </div>
+                    <div className="editor-footer-right"></div>
+                </div>
+            </div>
+        </div>
     )
 }
 
