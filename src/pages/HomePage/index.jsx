@@ -7,7 +7,7 @@ const HomePage = () => {
         <h1>Title here</h1>
       </div>
 
-      <div>
+      <div className="nav">
         <a href="#">Play</a>
         <a href="#">High Scores</a>
         <a href="#">Settings</a>

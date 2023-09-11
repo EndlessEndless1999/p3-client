@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Roboto+Mono&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bungee', cursive;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    font-size: 12.25rem;
+    color: #000F08;
+    -webkit-text-stroke-width: 0.01rem;
+    -webkit-text-stroke-color: #D90429;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+
+.nav {
+    font-size: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 5rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #FFC300;
+    -webkit-text-stroke-width: 0.1rem;
+    -webkit-text-stroke-color: #4D4847;
+}
+
+  
+  
