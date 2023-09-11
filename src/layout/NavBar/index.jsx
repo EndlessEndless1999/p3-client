@@ -3,7 +3,12 @@ import { NavLink, Outlet } from 'react-router-dom'
 
 const NavBar = () => {
   return (
-    <div>NavBar</div>
+    <>
+      <nav>
+        <NavLink to="/">Home</NavLink>
+      </nav>
+      <Outlet />
+    </>
   )
 }
 
