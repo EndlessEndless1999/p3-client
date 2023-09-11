@@ -8,7 +8,10 @@ import {javascript} from '@codemirror/lang-javascript'
 const NewEditor = (props) => {
     return (
         <CodeMirror
-        value={props.code}
+        onChange={(value) => {
+            props.setCode(value);
+            console.log(props.code);
+        }}
         extensions={[javascript({ jsx: true })]}
         theme={draculaInit({
             settings: {

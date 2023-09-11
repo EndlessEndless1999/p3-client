@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { NewEditor } from './components';
 
 function App() {
-
+  const [code, setCode] = useState();
   return (
-    <NewEditor />
+    <NewEditor code={code} setCode={setCode}/>
   )
 }
 
