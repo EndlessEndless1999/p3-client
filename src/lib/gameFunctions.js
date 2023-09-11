@@ -1,17 +1,19 @@
+import { handleCombatEncounter } from "./combatFunctions";
+
+
 function initializeGame() {
     const playerStats = {
-        health: 100,
+        currHP: 50,
+        maxHP: 50,
         attack: 10,
     };
-  
-    const gameState = {
-      isPlayerTurn: true,
-      isGameOver: false,
-    };
-  
-    return { playerStats, gameState };
-}
 
+    const isGameOver = false
+
+    sessionStorage.setItem('playerStats', JSON.stringify(playerStats));
+    sessionStorage.setItem('isGameOver', (isGameOver));
+    
+}
 
 
 function initializeEncounter() {
@@ -25,14 +27,13 @@ function initializeEncounter() {
         type: "combat", // could be "traversal" or "checkpoint"
         text: "An alien creature aggressively approaches you.",
         enemyStats : {  // could be empty if encounterData.type is not "combat"
-            health: 100,
+            currHP: 50,
+            maxHP: 50,
             attack: 8,
         }
     }
-
-    return encounterData;
+    return encounterData
 }
-
 
 
 function startEncounter() {
@@ -55,61 +56,6 @@ function startEncounter() {
 
 
 
-function handleCombatEncounter(encounterData) {
-    console.log(encounterData.text); // Modify to write to the DOM
-    
-    const { playerStats, enemyStats, gameState } = encounterData;
-    
-    // Main combat loop
-    while (playerStats.health > 0 && enemyStats.health > 0) {
-        if (gameState.isPlayerTurn) {
-            // Player's turn
-            console.log("Player's turn:");
-            const playerAction = getPlayerAction(); 
-            
-            switch (playerAction) {
-                case "attack":
-
-                    enemyStats.health -= playerStats.attack;
-                    console.log(`Player attacks for ${playerStats.attack} damage! Enemy health: ${enemyStats.health}`);
-                    break;
-                case "defend":
-                    // Implement defend logic (e.g., reduce incoming damage)
-                    console.log("Player defends!");
-                    break;
-                case "useItem":
-                    // Implement item usage logic (e.g., heal or buff the player)
-                    console.log("Player uses an item!");
-                    break;
-                default:
-                    console.log("Invalid action. Player skips their turn.");
-                    break;
-            }
-        } else {
-
-            // Enemy's turn
-            playerStats.health -= enemyStats.attack;
-            console.log(`Enemy attacks for ${enemyStats.attack} damage! Player health: ${playerStats.health}`);
-        }
-        
-        // Toggle turn
-        gameState.isPlayerTurn = !gameState.isPlayerTurn;
-    }
-    
-    // Check the game result
-    if (playerStats.health <= 0) {
-        console.log("You have been defeated!");
-        gameState.isGameOver = true;
-    } else {
-        console.log("You defeated the enemy!");
-        gameState.isGameOver = true;
-    }
-}
-
-
-function getPlayerAction() {
-    // Implement logic to get player's action via buttons, etc.
-    // Will return the action ie. "attack"
-}
-
-
+initializeGame()
+initializeEncounter()
+startEncounter()
