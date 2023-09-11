@@ -11,9 +11,9 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<NavBar />}>
-          <Route index element={<HomePage />}/>
-          <Route path="/play" element={<GamePage />}/>
-        </Route >
+          <Route index element={<HomePage />} />
+          <Route path="/play" element={<GamePage />} />
+      </Route>
       </Routes>
     </>
   )
