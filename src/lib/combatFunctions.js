@@ -9,8 +9,8 @@ function handleCombatEncounter(encounterData) {
     };
 
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
-    createEnemy(encounterData)
-    playerTurn()
+    createEnemy(encounterData);
+    playerTurn();
 }
 
 
@@ -35,12 +35,12 @@ function playerTurn() {
 function playerAttack(enemy) {
     const playerStats = JSON.parse(sessionStorage.getItem('playerStats'));
 
-    enemy.currHP -= playerStats.attack
+    enemy.currHP -= playerStats.attack;
     // updateHealthDisplay();
 
     if (enemy.health <= 0) {
-        endCombat()
-    // Victory message then go to next encounter;
+        endCombat();
+        // Victory message then go to next encounter;
 
     } else {
         switchTurn();
@@ -63,10 +63,10 @@ function enemyTurn(enemy) {
         // updateHealthDisplay();
 
         if (playerStats.currHP <= 0) {
-            endCombat()
-            endGame()
+            endCombat();
+            endGame();
         } else {
-            switchTurn(); // Switch back to the player's turn
+            switchTurn(); 
         }
     }
 }
