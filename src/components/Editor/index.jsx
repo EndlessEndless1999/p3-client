@@ -8,8 +8,9 @@ const Editor = () => {
     return (
         <div>
             <AceEditor 
+            width='100%'
             mode='javascript'
-            theme='github'
+            theme='monokai'
             />
         </div>
     )

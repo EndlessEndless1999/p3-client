@@ -1,8 +1,10 @@
 import React from 'react'
-import { Editor } from '../../components'
+import { Editor, RunButton } from '../../components'
 import './index.css'
 
 const EditorWrapper = () => {
+
+
 
 
     return (
@@ -13,7 +15,7 @@ const EditorWrapper = () => {
                     </div>
                     <div className="editor__footer">
                         <div className="editor__footer--left">
-                            <button className="editor__btn editor__run">Run {'>'}</button>
+                            <RunButton />
                             <button className="editor__btn editor__reset">Reset {'>'}</button>
                         </div>
                         <div className="editor__footer--right">
