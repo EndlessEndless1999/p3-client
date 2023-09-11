@@ -86,10 +86,10 @@ function handleCombatEncounter(encounterData) {
                     break;
             }
         } else {
+
             // Enemy's turn
-            const enemyDamage = enemyStats.attack;
-            playerStats.health -= enemyDamage;
-            console.log(`Enemy attacks for ${enemyDamage} damage! Player health: ${playerStats.health}`);
+            playerStats.health -= enemyStats.attack;
+            console.log(`Enemy attacks for ${enemyStats.attack} damage! Player health: ${playerStats.health}`);
         }
         
         // Toggle turn
@@ -106,11 +106,10 @@ function handleCombatEncounter(encounterData) {
     }
 }
 
-// Function to get the player's action (you can implement your UI and input logic here)
+
 function getPlayerAction() {
-    // For simplicity, you can use prompt or user interface buttons to get the player's choice.
-    // Return "attack", "defend", or "useItem" based on the player's choice.
-    // Handle other possible inputs as needed.
+    // Implement logic to get player's action via buttons, etc.
+    // Will return the action ie. "attack"
 }
 
 
