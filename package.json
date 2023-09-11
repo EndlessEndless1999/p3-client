@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.1",
+    "@uiw/codemirror-theme-dracula": "^4.21.13",
+    "@uiw/codemirror-themes": "^4.21.13",
     "@uiw/react-codemirror": "^4.21.13",
     "codemirror": "^6.0.1",
     "react": "^18.2.0",

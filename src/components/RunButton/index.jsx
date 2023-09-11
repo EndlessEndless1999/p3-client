@@ -1,15 +1,15 @@
 import React from 'react'
 
-const RunButton = () => {
+const RunButton = (props) => {
 
-    const onClick = (e) => {
+    const handleClick = (e) => {
         e.preventDefault();
-        console.log('Hello World. I am the RunButton.');
+        props.onRun();
     }
 
 
     return (
-        <button className="editor__btn editor__run" onClick={onClick}>Run {'>'}</button>
+        <button className="editor__btn editor__run" onClick={handleClick}>Run {'>'}</button>
     )
 }
 

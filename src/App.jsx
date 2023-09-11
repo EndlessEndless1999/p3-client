@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { EditorWrapper } from './components';
+import { NewEditor } from './components';
 
 function App() {
 
   return (
-    <EditorWrapper />
+    <NewEditor />
   )
 }
 
