@@ -8,7 +8,11 @@ const HomePage = () => {
       </div>
 
       <div>
-        
+        <a href="#">Play</a>
+        <a href="#">High Scores</a>
+        <a href="#">Settings</a>
+        <a href="#">Help</a>
+        <a href="#">About</a>
       </div>
     </>
   )
