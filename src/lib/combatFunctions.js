@@ -78,11 +78,11 @@ function switchTurn(enemy) {
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
 
     if (!combatState.isPlayerTurn) {
-        setTimeout(enemyTurn(enemy), 1000); 
+        setTimeout(() => enemyTurn(enemy), 1000);
     }
 
     else {
-        setTimeout(playerTurn, 1000)
+        setTimeout(() => playerTurn(), 1000);
     }
 }
 
@@ -96,7 +96,7 @@ function updatePlayerCurrHP(newCurrHP) {
 
 function endCombat() {
     const combatState = JSON.parse(sessionStorage.getItem('combatState'));
-    combatState.isCombatOver = false;
+    combatState.isCombatOver = true;
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
 }
 

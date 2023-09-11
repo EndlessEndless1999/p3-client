@@ -56,6 +56,4 @@ function startEncounter() {
 
 
 
-initializeGame()
-initializeEncounter()
-startEncounter()
+export { initializeGame, initializeEncounter, startEncounter}
