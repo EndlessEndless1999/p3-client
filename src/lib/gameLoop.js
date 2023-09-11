@@ -1,4 +1,4 @@
-import { initializeGame, initializeEncounter, startEncounter } from './gameFunctions'
+import { initializeGame, initializeEncounter, startEncounter } from './initFunctions'
 
 initializeGame()
 
