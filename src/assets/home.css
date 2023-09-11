@@ -5,6 +5,13 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Bungee', cursive;
+    background-image: url('/temp-bg.jpg'); /* Path to your background image */
+    background-size: cover; /* Adjust the size as needed */
+    background-repeat: no-repeat;
+    margin: 0; /* Remove default margin to cover the entire viewport */
+    padding: 0; /* Remove default padding */
+    height: 100vh; /* Set the height to cover the entire viewport */
+    overflow: hidden; /* Prevent scrolling if necessary */
 }
 
 h1 {
