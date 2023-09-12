@@ -3,7 +3,6 @@ import React from 'react'
 const Game = () => {
   return (
     <>
-    <div>
       <div className="timer">
         Timer
       </div>
@@ -29,7 +28,6 @@ const Game = () => {
           log
         </div>
       </div>
-    </div>
     </>
   )
 }
