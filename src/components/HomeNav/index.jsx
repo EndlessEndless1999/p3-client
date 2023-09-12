@@ -5,7 +5,7 @@ const HomeNav = () => {
   return (
     <>
       <nav>
-        <NavLink to="/play">Play</NavLink>
+        <NavLink to="/game">Play</NavLink>
       </nav>
       <Outlet />
     </>
