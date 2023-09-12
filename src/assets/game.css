@@ -1,0 +1,31 @@
+.timer {
+    text-align: center;
+}
+  
+.characters {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+img {
+    height: 20rem;
+    width: auto;
+}
+  
+.playerContainer {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    background-color: #4D4847;
+    height: 250px;
+}
+
+.code, .log {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border: 0.5rem solid grey;
+}

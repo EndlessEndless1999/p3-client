@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Roboto+Mono&display=swap');
 
-body {
+/* body {
     background-image: url('/temp-bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-}
+} */
 
 h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Bungee', cursive;
     font-size: 12.25rem;
     color: #000F08;
