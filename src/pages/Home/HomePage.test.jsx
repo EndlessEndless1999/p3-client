@@ -1,16 +1,21 @@
 import React from 'react'
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { screen, render, cleanup } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom';
 
 import * as matchers from '@testing-library/jest-dom/matchers'
 expect.extend(matchers);
 
 import Home from '.';
 
-describe('Home', () => {
-    beforeEach(() => {
-      render(<Home />);
-    });
+describe('Home Page', () => {
+  beforeEach(() => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+  });
   
     afterEach(() => {
       cleanup();
@@ -20,18 +25,4 @@ describe('Home', () => {
       const title = screen.getByText('Title here');
       expect(title).toBeInTheDocument();
     });
-
-    it('displays the navigation links', () => {
-        const playLink = screen.getByText('Play');
-        const highScoresLink = screen.getByText('High Scores');
-        const settingsLink = screen.getByText('Settings');
-        const helpLink = screen.getByText('Help');
-        const aboutLink = screen.getByText('About');
-    
-        expect(playLink).toBeInTheDocument();
-        expect(highScoresLink).toBeInTheDocument();
-        expect(settingsLink).toBeInTheDocument();
-        expect(helpLink).toBeInTheDocument();
-        expect(aboutLink).toBeInTheDocument();
-      });
   });

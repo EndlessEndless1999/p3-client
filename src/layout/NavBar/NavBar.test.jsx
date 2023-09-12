@@ -22,10 +22,10 @@ describe('NavBar Component', () => {
       cleanup()
     })
   
-    it('displays a NavBar with 2 children', () => {
+    it('displays a NavBar with 6 children', () => {
       const nav = screen.getByRole('navigation')
   
       expect(nav).toBeInTheDocument()
-      expect(nav.childNodes.length).toBe(2)
+      expect(nav.childNodes.length).toBe(6)
     })
   })
