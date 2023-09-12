@@ -3,9 +3,9 @@ import { handleCombatEncounter } from "./combatFunctions";
 
 function initializeGame() {
     const playerStats = {
-        currHP: 50,
-        maxHP: 50,
-        attack: 10,
+        currHP: 20,
+        maxHP: 20,
+        attack: 5,
     };
 
     const isGameOver = false
@@ -27,9 +27,9 @@ function getEncounterData() {
         type: "combat", // could be "traversal" or "checkpoint"
         text: "An alien creature aggressively approaches you.",
         enemyStats : {  // could be empty if encounterData.type is not "combat"
-            currHP: 50,
-            maxHP: 50,
-            attack: 8,
+            currHP: 10,
+            maxHP: 10,
+            attack: 10,
         }
     }
     console.log('Encounter initialized')

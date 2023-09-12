@@ -1,3 +1,4 @@
+import { endGame, startEncounter } from "./initFunctions";
 
 
 function handleCombatEncounter(encounterData) {
@@ -38,22 +39,28 @@ function playerTurn() {
 
 function playerAttack() {
     
-    const playerStats = getPlayerStats();
-    const enemyStats = getEnemyStats();
+    const combatState = getCombatState();
+    
+    if (!combatState.isCombatOver && combatState.isPlayerTurn) {
+        
+        const playerStats = getPlayerStats();
+        const enemyStats = getEnemyStats();
+    
+        enemyStats.currHP -= playerStats.attack;
+        console.log('Player attacked!')
+        updateEnemyCurrHP(enemyStats.currHP)
+        // updateHealthDisplay();
+    
+        if (enemyStats.currHP <= 0) {
+            console.log('Enemy has been defeated!')
+            endCombat();    
+            // Victory message then go to next encounter;
+            setTimeout(() => startEncounter(), 2000);
 
-    enemyStats.currHP -= playerStats.attack;
-    console.log('Player attacked!')
-    updateEnemyCurrHP(enemyStats.currHP)
-    // updateHealthDisplay();
-
-    if (enemyStats.currHP <= 0) {
-        endCombat();
-        console.log('Enemy has been defeated!')
-
-        // Victory message then go to next encounter;
-
-    } else {
-        switchTurn();
+    
+        } else {
+            switchTurn();
+        }
     }
 }
 
@@ -72,7 +79,9 @@ function enemyTurn() {
         // updateHealthDisplay();
 
         if (playerStats.currHP <= 0) {
+            console.log('You have been defeated!')
             endCombat();
+            endGame();
         } else {
             switchTurn(); 
         }
@@ -134,9 +143,11 @@ function displayStats() {
 }
 
 function endCombat() {
+    console.log('Combat ended')
     const combatState = JSON.parse(sessionStorage.getItem('combatState'));
     combatState.isCombatOver = true;
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
+
 }
 
 export { handleCombatEncounter, initializeEnemy, playerTurn, playerAttack, displayStats, getCombatState }
