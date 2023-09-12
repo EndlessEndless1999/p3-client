@@ -6,6 +6,7 @@ import {javascript} from '@codemirror/lang-javascript'
 
 
 const NewEditor = (props) => {
+
     return (
         <CodeMirror
         onChange={(value) => {
