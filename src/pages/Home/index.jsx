@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { HomeNav } from '../../components'
+
 const Home = () => {
   return (
     <>
@@ -7,13 +9,7 @@ const Home = () => {
         <h1>Title here</h1>
       </div>
 
-      <div className="nav">
-        <a href="/play">Play</a>
-        <a href="#">High Scores</a>
-        <a href="#">Settings</a>
-        <a href="#">Help</a>
-        <a href="#">About</a>
-      </div>
+      <HomeNav />
     </>
   )
 }
