@@ -4,14 +4,16 @@ import axios from 'axios';
 
 function App() {
   const [code, setCode] = useState();
-  const [testCases, setTestCases] = useState([]);
+  const [testCases, setTestCases] = useState();
 
   const handleClick = async (e) => {
     e.preventDefault();
     const response = await axios.post('http://localhost:3000/python', {code}).then((data) => {
     console.log(data.data[0]);  
-    setTestCases(data.data[0])})
+    setTestCases(data.data[0])
     console.log(testCases);
+  })
+
   }
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { dracula, draculaInit } from '@uiw/codemirror-theme-dracula';
 import { tags as t } from '@lezer/highlight';
-import {javascript} from '@codemirror/lang-javascript'
+import {python} from '@codemirror/lang-python'
 
 
 const NewEditor = (props) => {
@@ -10,10 +10,10 @@ const NewEditor = (props) => {
     return (
         <CodeMirror
         onChange={(value) => {
-            props.setCode(value);
+            props.setCode(value);  
             console.log(props.code);
         }}
-        extensions={[javascript({ jsx: true })]}
+        extensions={[python({ jsx: true })]}
         theme={draculaInit({
             settings: {
               caret: '#c6c6c6',
