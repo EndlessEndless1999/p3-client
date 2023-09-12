@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import { Timer } from '../../components'
 
 const Game = () => {
+  const [startTimer, setStartTimer] = useState(false);
+
+  const handleLaunchCodeClick = () => {
+    setStartTimer(true);
+  };
+
   return (
     <>
-      <div className="timer">
-        Timer
-      </div>
+      <Timer startTimer={startTimer} />
       
       <div className="characters">
         <div>
@@ -21,7 +27,10 @@ const Game = () => {
         
       <div className="playerContainer">
         <div className="code">
-          <button>launch code</button>
+          <button
+            onClick={handleLaunchCodeClick}
+          >
+            launch code</button>
         </div>
 
         <div className="log">
