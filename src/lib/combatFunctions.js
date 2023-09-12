@@ -26,8 +26,8 @@ function playerTurn() {
     if (!combatState.isCombatOver && combatState.isPlayerTurn) {
 
         // Add event listeners for player turn buttons, add more as necesarry
-        const attackButton = document.getElementById("attack-button");
-        attackButton.addEventListener("click", playerAttack);
+        // const attackButton = document.getElementById("attack-button");
+        // attackButton.addEventListener("click", playerAttack);
     }
 }
 
@@ -46,8 +46,8 @@ function playerAttack(enemy) {
         switchTurn();
 
         // Remove event listeners for player turn buttons, add more as necesarry
-        const attackButton = document.getElementById("attack-button");
-        attackButton.removeEventListener("click", playerAttack); 
+        // const attackButton = document.getElementById("attack-button");
+        // attackButton.removeEventListener("click", playerAttack); 
     }
 }
 
@@ -106,4 +106,4 @@ function endGame() {
 }
 
 
-export { handleCombatEncounter }
+export { handleCombatEncounter, createEnemy, playerTurn }
