@@ -7,3 +7,12 @@ body {
     font-family: 'Roboto Mono', monospace;
     /* overflow: hidden; */
 }
+
+.icon {
+    display: flex;
+    justify-content: center;
+}
+
+#icon {
+    height: 2rem;
+}

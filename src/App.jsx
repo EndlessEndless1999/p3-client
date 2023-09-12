@@ -9,6 +9,10 @@ import './assets/style.css'
 const App = () => {
   return (
     <>
+      <div className="icon">
+        <img src="./temp-robot.png" alt="icon" id="icon" /> 
+      </div>
+      
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Pages.Home />} />
