@@ -26,8 +26,10 @@ const Timer = ({ startTimer }) => {
   };
 
   return (
-    <div className="timer">
-      {formatTime(time)}
+    <div className="timer-container">
+      <div className="timer">
+        {formatTime(time)}
+      </div>
     </div>
   );
 };

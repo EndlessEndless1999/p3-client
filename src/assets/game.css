@@ -1,8 +1,3 @@
-.timer {
-  display: flex;
-  justify-content: center;
-}
-
 .characters {
   display: grid;
   align-items: center;
