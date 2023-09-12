@@ -4,10 +4,6 @@ body {
     background-image: url('/temp-bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 0; 
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
 }
 
 h1 {
