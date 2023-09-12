@@ -4,7 +4,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 const HomeNav = () => {
   return (
     <>
-      <nav>
+      <nav className="nav">
         <NavLink to="/game">Play</NavLink>
         <NavLink to="/high-scores">High Scores</NavLink>
         <NavLink to="/settings">Settings</NavLink>
