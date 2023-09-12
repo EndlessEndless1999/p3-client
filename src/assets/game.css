@@ -25,7 +25,14 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color: white;
-    border: 0.5rem solid grey;
+    background-color: #000F08;
+    border: 0.5rem solid #4D4847;
+}
+
+.log {
+    display: flex;
+    justify-content: left;
+    align-items: baseline;
+    padding: 0.5rem;
+    color: #008000;
 }
