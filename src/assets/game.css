@@ -1,38 +1,51 @@
-.timer {
-    text-align: center;
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
-  
+
+.timer {
+  display: flex;
+  justify-content: center;
+}
+
 .characters {
-    display: grid;
-    text-align: center;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  grid-template-columns: 1fr 1fr;
+  height: 50vh;
 }
 
 img {
-    height: 20rem;
-    width: auto;
+  height: 20rem;
+  width: auto;
 }
-  
+
 .playerContainer {
     display: grid;
     text-align: center;
     grid-template-columns: 1fr 1fr;
     background-color: #4D4847;
-    height: 250px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40vh;
 }
 
 .code, .log {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000F08;
-    border: 0.5rem solid #4D4847;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000F08;
+  border: 0.5rem solid #4D4847;
 }
 
 .log {
-    display: flex;
-    justify-content: left;
-    align-items: baseline;
-    padding: 0.5rem;
-    color: #008000;
+  display: flex;
+  justify-content: left;
+  align-items: baseline;
+  padding: 0.5rem;
+  color: #008000;
 }
