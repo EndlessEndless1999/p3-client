@@ -3,19 +3,30 @@
     display: flex;
     justify-content: space-evenly;
     font-size: 2rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    position: fixed;
-    width: 100%;
     background-color: #000F08;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 0.5s ease;
+    opacity: 0;
     z-index: 1;
-}
-
-.NavBar:hover {
-    opacity: 1; 
-    pointer-events: auto;
   }
-
+  
+.NavBar:not(.hidden):hover {
+    opacity: 1;
+    pointer-events: auto;
+}
+  
+.NavBar.fixed {
+    opacity: 1;
+    pointer-events: auto;
+}
+  
+.hidden {
+    display: none;
+}
+  
 .NavBar a {
     text-decoration: none;
     color: #000F08;

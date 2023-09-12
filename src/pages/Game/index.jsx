@@ -11,7 +11,7 @@ const Game = () => {
 
   return (
     <>
-      <Timer startTimer={startTimer} />
+        <Timer startTimer={startTimer} />
       
       <div className="characters">
         <div>
