@@ -68,7 +68,7 @@ const Game = () => {
 
         </div>
 
-        <div className="log">
+        <div className="logger">
           <Logger />
         </div>
       </div>
