@@ -29,9 +29,21 @@ h3 {
     justify-content: center;
     font-family: 'Bungee', cursive;
     font-weight: 400;
-    font-size: 2em;
+    font-size: 2rem;
     color: #FFC300;
     -webkit-text-stroke-width: 0.1rem;
     -webkit-text-stroke-color: #4D4847;
+    line-height: 1rem;
+}
+
+h4 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Bungee', cursive;
+    font-weight: 400;
+    font-size: 2rem;
+    color: #000F08;
+    -webkit-text-stroke-width: 0.1rem;
+    -webkit-text-stroke-color: #D90429;
     line-height: 1rem;
 }
