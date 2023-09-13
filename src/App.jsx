@@ -21,6 +21,10 @@ function App() {
           <Route path="/settings" element={<Pages.Settings />} />
           <Route path="/help" element={<Pages.Help />} />
           <Route path="/about" element={<Pages.About />} />
+          <Route path="/login" element={<Pages.Login />} />
+          <Route path="/register" element={<Pages.Register />} />
+          <Route path="/forgot-password" element={<Pages.ForgotPassword />} />
+          <Route path="/reset-password" element={<Pages.ResetPassword />} />
           <Route path="*" element={<Pages.NotFound />} />
       </Route>
       </Routes>
