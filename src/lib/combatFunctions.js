@@ -1,4 +1,5 @@
-import { Enemy } from './enemy.js'
+import { endGame, startEncounter } from "./initFunctions";
+import { renderPlayerAttackAnimation } from "./animationFunctions";
 
 
 function handleCombatEncounter(encounterData) {
@@ -9,60 +10,77 @@ function handleCombatEncounter(encounterData) {
     };
 
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
-    createEnemy(encounterData);
+    initializeEnemy(encounterData);
     playerTurn();
 }
 
 
-function createEnemy(encounterData) {
-    const enemy = new Enemy(encounterData.enemyStats.maxHP, encounterData.enemyStats.attack);
-    return enemy;
+function initializeEnemy(encounterData) {
+    
+    const enemyStats = {
+        currHP: encounterData.enemyStats.maxHP,
+        maxHP: encounterData.enemyStats.maxHP,
+        attack: encounterData.enemyStats.attack
+    };
+ 
+    sessionStorage.setItem('enemyStats', JSON.stringify(enemyStats));
 }
 
 
 function playerTurn() {
-    const combatState = JSON.parse(sessionStorage.getItem('combatState'));
+    displayStats();
+    console.log("It is now the Player's turn");
+    const combatState = getCombatState();
 
     if (!combatState.isCombatOver && combatState.isPlayerTurn) {
-
-        // Add event listeners for player turn buttons, add more as necesarry
-        // const attackButton = document.getElementById("attack-button");
-        // attackButton.addEventListener("click", playerAttack);
+        // some logic
     }
 }
 
 
-function playerAttack(enemy) {
-    const playerStats = JSON.parse(sessionStorage.getItem('playerStats'));
+function playerAttack() {
+    renderPlayerAttackAnimation()
+    const combatState = getCombatState();
+    
+    if (!combatState.isCombatOver && combatState.isPlayerTurn) {
+        
+        const playerStats = getPlayerStats();
+        const enemyStats = getEnemyStats();
+    
+        enemyStats.currHP -= playerStats.attack;
+        console.log('Player attacked!')
+        updateEnemyCurrHP(enemyStats.currHP)
+        // updateHealthDisplay();
+    
+        if (enemyStats.currHP <= 0) {
+            console.log('Enemy has been defeated!')
+            endCombat();    
+            // Victory message then go to next encounter;
+            setTimeout(() => startEncounter(), 2000);
 
-    enemy.currHP -= playerStats.attack;
-    // updateHealthDisplay();
-
-    if (enemy.health <= 0) {
-        endCombat();
-        // Victory message then go to next encounter;
-
-    } else {
-        switchTurn();
-
-        // Remove event listeners for player turn buttons, add more as necesarry
-        // const attackButton = document.getElementById("attack-button");
-        // attackButton.removeEventListener("click", playerAttack); 
+    
+        } else {
+            switchTurn();
+        }
     }
 }
 
 
-function enemyTurn(enemy) {
-    const combatState = JSON.parse(sessionStorage.getItem('combatState'));
-    const playerStats = JSON.parse(sessionStorage.getItem('playerStats'));
+function enemyTurn() {
+    console.log("It is now the Enemy's turn")
 
-
-    if (!combatState.isCombatOver && !combatState.State.isPlayerTurn) {
-        playerStats.currHP -= enemy.attack
+    const combatState = getCombatState();
+    const playerStats = getPlayerStats();
+    const enemyStats = getEnemyStats();
+    
+    if (!combatState.isCombatOver && !combatState.isPlayerTurn) {
+        playerStats.currHP -= enemyStats.attack
+        console.log('Enemy attacked!')
         updatePlayerCurrHP(playerStats.currHP)
         // updateHealthDisplay();
 
         if (playerStats.currHP <= 0) {
+            console.log('You have been defeated!')
             endCombat();
             endGame();
         } else {
@@ -73,16 +91,17 @@ function enemyTurn(enemy) {
 
 
 function switchTurn(enemy) {
+    console.log('Switching turns...')
     const combatState = JSON.parse(sessionStorage.getItem('combatState'));
     combatState.isPlayerTurn = !combatState.isPlayerTurn;
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
 
     if (!combatState.isPlayerTurn) {
-        setTimeout(() => enemyTurn(enemy), 1000);
+        setTimeout(() => enemyTurn(enemy), 2000);
     }
 
     else {
-        setTimeout(() => playerTurn(), 1000);
+        setTimeout(() => playerTurn(), 2000);
     }
 }
 
@@ -91,19 +110,45 @@ function updatePlayerCurrHP(newCurrHP) {
     const playerStats = JSON.parse(sessionStorage.getItem('playerStats'));
     playerStats.currHP = newCurrHP;
     sessionStorage.setItem('playerStats', JSON.stringify(playerStats));
+    console.log('playerStats updated: ', (sessionStorage.getItem('playerStats')))
 }
 
 
+function updateEnemyCurrHP(newCurrHP) {
+    const enemyStats = JSON.parse(sessionStorage.getItem('enemyStats'));
+    enemyStats.currHP = newCurrHP;
+    sessionStorage.setItem('enemyStats', JSON.stringify(enemyStats));
+    console.log('enemyStats updated: ', (sessionStorage.getItem('enemyStats')))
+}
+
+
+function getCombatState() {
+    const combatState = JSON.parse(sessionStorage.getItem('combatState'));
+    return combatState;
+}
+
+function getPlayerStats() {
+const playerStats = JSON.parse(sessionStorage.getItem('playerStats'));
+return playerStats;
+}
+  
+function getEnemyStats() {
+const enemyStats = JSON.parse(sessionStorage.getItem('enemyStats'));
+return enemyStats;
+}
+
+function displayStats() {
+    console.log('playerStats: ', (sessionStorage.getItem('playerStats')))
+    console.log('enemyStats: ', (sessionStorage.getItem('enemyStats')))
+
+}
+
 function endCombat() {
+    console.log('Combat ended')
     const combatState = JSON.parse(sessionStorage.getItem('combatState'));
     combatState.isCombatOver = true;
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
+
 }
 
-
-function endGame() {
-    sessionStorage.setItem('isGameOver', 'true');
-}
-
-
-export { handleCombatEncounter, createEnemy, playerTurn }
+export { handleCombatEncounter, initializeEnemy, playerTurn, playerAttack, displayStats, getCombatState }
