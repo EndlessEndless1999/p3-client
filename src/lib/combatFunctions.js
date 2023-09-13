@@ -40,7 +40,7 @@ function playerTurn() {
 }
 
 
-function playerAttack() {
+function handlePlayerAttack() {
     renderPlayerAttackAnimation()
     const combatState = getCombatState();
     
@@ -81,15 +81,14 @@ function enemyTurn() {
     
     if (!combatState.isCombatOver && !combatState.isPlayerTurn) {
         playerStats.currHP -= enemyStats.attack
-        addMessageToLogger('Enemy attacked Buggy!')
-        addMessageToLogger(`Enemy dealt ${playerStats.attack} damage!`)
+        setTimeout(() => addMessageToLogger('Enemy attacked Buggy!'), 250);
+        setTimeout(() => addMessageToLogger(`Enemy dealt ${playerStats.attack} damage!`), 250);
         updatePlayerCurrHP(playerStats.currHP)
         // updateHealthDisplay();
 
         if (playerStats.currHP <= 0) {
             setTimeout(() => renderPlayerDyingAnimation(), 500);
-
-            addMessageToLogger('--- CRITICAL FAILURE ---')
+            setTimeout(() => addMessageToLogger('--- CRITICAL FAILURE ---'), 500);
             endCombat();
             endGame();
         } else {
@@ -160,4 +159,4 @@ function endCombat() {
 
 }
 
-export { handleCombatEncounter, initializeEnemy, playerTurn, playerAttack, displayStats, getCombatState }
+export { handleCombatEncounter, initializeEnemy, playerTurn, handlePlayerAttack, displayStats, getCombatState }

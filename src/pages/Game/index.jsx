@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 import { Timer, Player, Enemy, Logger, EditorWrapper } from '../../components';
 import { checkIsGameOver, initializeGame, startEncounter} from '../../lib/initFunctions';
-import { displayStats, playerAttack } from '../../lib/combatFunctions';
+import { displayStats, handlePlayerAttack } from '../../lib/combatFunctions';
 
 const Game = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -23,12 +23,9 @@ const Game = () => {
   };
 
   const handleAttackClick = () => {
-    if (!isAttackButtonDisabled) {
-      setIsAttackButtonDisabled(true);
-      setTimeout(() => setIsAttackButtonDisabled(false), 2000);
-
-      playerAttack();
-    }
+    setIsAttackButtonDisabled(true);
+    setTimeout(() => setIsAttackButtonDisabled(false), 2000);
+    handlePlayerAttack();
   };
 
   const handleLaunchCodeClick = () => {
