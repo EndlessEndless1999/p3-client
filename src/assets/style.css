@@ -1,6 +1,8 @@
 @import url("app.css");
+@import url("headings.css");
 @import url("navbar.css");
 @import url("home.css");
 @import url("game.css");
 @import url("timer.css");
+@import url("highscores.css");
 @import url("about.css");

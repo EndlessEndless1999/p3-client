@@ -6,21 +6,6 @@
     background-repeat: no-repeat;
 } */
 
-h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Bungee', cursive;
-    font-size: 12.25rem;
-    color: #000F08;
-    -webkit-text-stroke-width: 0.01rem;
-    -webkit-text-stroke-color: #D90429;
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-}
-
-
 .nav {
     font-family: 'Bungee', cursive;
     font-size: 4rem;
