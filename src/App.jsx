@@ -18,7 +18,6 @@ function App() {
           <Route index element={<Pages.Home />} />
           <Route path="/game" element={<Pages.Game />} />
           <Route path="/high-scores" element={<Pages.HighScores />} />
-          <Route path="/settings" element={<Pages.Settings />} />
           <Route path="/help" element={<Pages.Help />} />
           <Route path="/about" element={<Pages.About />} />
           <Route path="/login" element={<Pages.Login />} />
