@@ -1,0 +1,31 @@
+.highScores {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  height: 100vh;
+}
+
+.highScoresTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  border: 2px solid #000F08;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+table {
+  width: 100rem;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+}
+
+th {
+  background-color: #000F08;
+  color: white;
+}
