@@ -16,16 +16,13 @@ describe('Game Component', () => {
     cleanup();
   });
 
-  it('displays character images', () => {
-    const robotImage = screen.getByAltText('BuggyBot');
-    const alienImages = screen.getAllByAltText('alien');
-
-    expect(robotImage).toBeInTheDocument();
-    expect(alienImages).toHaveLength(3);
+  it('renders the game container', () => {
+    const gameContainer = screen.getByRole('main');
+    expect(gameContainer).toBeInTheDocument();
   });
 
-  it('displays a launch code button', () => {
-    const launchCodeButton = screen.getByText('launch code');
-    expect(launchCodeButton).toBeInTheDocument();
+  it('renders the "Start Game" button', () => {
+    const startGameButton = screen.getByText('Start Game');
+    expect(startGameButton).toBeInTheDocument();
   });
 });

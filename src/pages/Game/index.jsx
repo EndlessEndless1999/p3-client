@@ -42,7 +42,7 @@ const Game = () => {
   return (
     <>
     {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen}/>}
-    <div className="gameContainer">
+    <div className="gameContainer" role="main">
       <Timer startTimer={startTimer} />
 
       <div className="characters">
