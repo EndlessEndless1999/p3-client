@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion'
 
 import { Timer, Player, Enemy, EditorWrapper } from '../../components';
 import { checkIsGameOver, initializeGame, preloadSpriteSheets, startEncounter} from '../../lib/initFunctions';
@@ -8,6 +9,7 @@ const Game = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isAttackButtonDisabled, setIsAttackButtonDisabled] = useState(false);
   const [startTimer, setStartTimer] = useState(false);
+  const [editorOpen, setEditorOpen] = useState(false)
 
   preloadSpriteSheets()
 
@@ -34,10 +36,12 @@ const Game = () => {
   const handleLaunchCodeClick = () => {
     console.log('launch code clicked');
     setStartTimer(true);
+    setEditorOpen(true);
   };
 
   return (
     <>
+    {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen}/>}
     <div className="gameContainer">
       <Timer startTimer={startTimer} />
 
@@ -55,6 +59,7 @@ const Game = () => {
 
       <div className="playerContainer">
         <div className="code">
+        
 
           {!isGameStarted && (
             <button onClick={handleStartGameClick}>
@@ -67,7 +72,11 @@ const Game = () => {
               Attack</button>
           )}
 
-          <button onClick={handleLaunchCodeClick}>Launch Code</button>
+          <motion.button
+           onClick={handleLaunchCodeClick}
+           whileHover={{scale: 1.1}}
+           whileTap={{scale: 0.9}}
+           >Launch Code</motion.button>
 
         </div>
 
