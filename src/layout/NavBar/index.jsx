@@ -13,7 +13,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className={`NavBar ${isHomePage ? 'hidden' : ''} ${isHighScoresPage || isSettingsPage || isHelpPage || isAboutPage || isLoginPage || isRegisterPage ? 'fixed' : ''}`}>
+      <nav className={`NavBar ${isHomePage ? 'hidden' : ''} ${isHighScoresPage || isSettingsPage || isHelpPage || isAboutPage || isLoginPage || isRegisterPage? 'fixed' : ''}`}>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/game">Play</NavLink>
         <NavLink to="/high-scores">High Scores</NavLink>
@@ -21,7 +21,7 @@ const NavBar = () => {
         <NavLink to="/help">Help</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/login">Login</NavLink>
-        <NavLink to="/Register">Register</NavLink>
+        <NavLink to="/register">Register</NavLink>
       </nav>
       <Outlet />
     </>
