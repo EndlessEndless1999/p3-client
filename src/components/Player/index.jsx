@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../assets/player.css'
+import '../../assets/css/player.css'
 
 const Player = () => {
     const [isAnimating, setIsAnimating] = useState(false);
