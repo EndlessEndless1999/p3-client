@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Timer, Player, Enemy } from '../../components';
+import { Timer, Player, Enemy, EditorWrapper } from '../../components';
 import { checkIsGameOver, initializeGame, startEncounter} from '../../lib/initFunctions';
 import { displayStats, playerAttack } from '../../lib/combatFunctions';
 
