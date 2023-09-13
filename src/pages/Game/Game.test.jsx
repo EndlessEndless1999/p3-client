@@ -7,7 +7,7 @@ expect.extend(matchers);
 
 import Game from '.';
 
-describe('Game Component', () => {
+describe('Game Page', () => {
   beforeEach(() => {
     render(<Game />);
   });
