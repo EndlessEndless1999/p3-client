@@ -4,7 +4,7 @@
     width: 160px;
     height: 96px;
     transform: scale(3);
-    background-image: url('./sprites/robot-idle-spritesheet.png');
+    background-image: url('./sprites/robot-idle.png');
     background-repeat: no-repeat;
     position: absolute;
     animation: playerIdle 0.5s steps(4) infinite;
@@ -17,7 +17,7 @@
 }
 
 #player.attack {
-    background-image: url('./sprites/robot-attack-spritesheet.png');
+    background-image: url('./sprites/robot-attack.png');
     animation: playerAttack 0.5s steps(11) 1;
 }
 
@@ -27,7 +27,7 @@
 }
 
 #player.hit {
-    background-image: url('./sprites/robot-hit-spritesheet.png');
+    background-image: url('./sprites/robot-hit.png');
     animation: playerHit 0.5s steps(5) 1;
 }
 
@@ -37,7 +37,7 @@
 }
 
 #player.dying {
-    background-image: url('./sprites/robot-dying-spritesheet.png');
+    background-image: url('./sprites/robot-dying.png');
     animation: playerDying 0.5s steps(10) 1;
 }
 
@@ -47,7 +47,7 @@
 }
 
 #player.dead {
-    background-image: url('./sprites/robot-dying-spritesheet.png');
+    background-image: url('./sprites/robot-dying.png');
     animation: none;
     background-position: -1440px 0;
 }
