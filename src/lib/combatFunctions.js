@@ -1,8 +1,10 @@
 import { endGame, startEncounter } from "./initFunctions";
 import { renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation } from "./animationFunctions";
+import { addMessageToLogger } from "./loggerUtils";
 
 
 function handleCombatEncounter(encounterData) {
+    addMessageToLogger('--- INITIATE COMBAT PROTOCOL ---')
 
     const combatState = {
         isPlayerTurn: true,
@@ -29,7 +31,7 @@ function initializeEnemy(encounterData) {
 
 function playerTurn() {
     displayStats();
-    console.log("It is now the Player's turn");
+    addMessageToLogger("Buggy's turn!");
     const combatState = getCombatState();
 
     if (!combatState.isCombatOver && combatState.isPlayerTurn) {
@@ -48,12 +50,12 @@ function playerAttack() {
         const enemyStats = getEnemyStats();
     
         enemyStats.currHP -= playerStats.attack;
-        console.log('Player attacked!')
+        addMessageToLogger(`Buggy dealt ${playerStats.attack} damage!`)
         updateEnemyCurrHP(enemyStats.currHP)
         // updateHealthDisplay();
     
         if (enemyStats.currHP <= 0) {
-            console.log('Enemy has been defeated!')
+            addMessageToLogger('Enemy has been defeated!')
             endCombat();    
             // Victory message then go to next encounter;
             setTimeout(() => startEncounter(), 2000);
@@ -67,7 +69,7 @@ function playerAttack() {
 
 
 function enemyTurn() {
-    console.log("It is now the Enemy's turn")
+    addMessageToLogger("Enemy's turn")
 
     // renderEnemyAttackAnimation()
     setTimeout(() => renderPlayerHitAnimation(), 500);
@@ -79,14 +81,15 @@ function enemyTurn() {
     
     if (!combatState.isCombatOver && !combatState.isPlayerTurn) {
         playerStats.currHP -= enemyStats.attack
-        console.log('Enemy attacked!')
+        addMessageToLogger('Enemy attacked Buggy!')
+        addMessageToLogger(`Enemy dealt ${playerStats.attack} damage!`)
         updatePlayerCurrHP(playerStats.currHP)
         // updateHealthDisplay();
 
         if (playerStats.currHP <= 0) {
             setTimeout(() => renderPlayerDyingAnimation(), 500);
 
-            console.log('You have been defeated!')
+            addMessageToLogger('--- CRITICAL FAILURE ---')
             endCombat();
             endGame();
         } else {

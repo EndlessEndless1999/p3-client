@@ -48,4 +48,5 @@ img {
 
 .logs {
   flex-direction: column;
+  text-align: left;
 }
