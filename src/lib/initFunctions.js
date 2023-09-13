@@ -3,9 +3,9 @@ import { handleCombatEncounter } from "./combatFunctions";
 
 function initializeGame() {
     const playerStats = {
-        currHP: 20,
+        currHP: 40,
         maxHP: 20,
-        attack: 5,
+        attack: 4,
     };
 
     const isGameOver = false
@@ -77,5 +77,18 @@ function checkIsGameOver() {
     return sessionStorage.getItem('isGameOver')
 }
 
+function preloadSpriteSheets() {
+    const spriteSheetUrls = [
+        '../src/assets/sprites/robot-idle-spritesheet.png',
+        '../src/assets/sprites/robot-attack-spritesheet.png',
+        '../src/assets/sprites/robot-hit-spritesheet.png',
+        '../src/assets/sprites/robot-dying-spritesheet.png'
+    ];
 
-export { initializeGame, getEncounterData, startEncounter, endGame, checkIsGameOver}
+    spriteSheetUrls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+    });
+}
+
+export { initializeGame, getEncounterData, startEncounter, endGame, checkIsGameOver, preloadSpriteSheets }

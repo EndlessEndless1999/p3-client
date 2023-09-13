@@ -1,18 +1,35 @@
+function removeAnimationClass(className) {
+    const playerAnimate = document.getElementById('player');
+    playerAnimate.classList.remove(className);
+}
 
 function renderPlayerAttackAnimation() {
     const playerAnimate = document.getElementById('player');
-
-    playerAnimate.classList.add('attack'); // Add the 'attack' class to apply the attack animation
-    playerAnimate.addEventListener('animationend', onAnimationEnd, { once: true });
-
+    playerAnimate.classList.add('attack');
+    playerAnimate.addEventListener('animationend', () => {
+        removeAnimationClass('attack');
+    }, { once: true });
 }
 
-function onAnimationEnd() {
+function renderPlayerHitAnimation() {
     const playerAnimate = document.getElementById('player');
+    playerAnimate.classList.add('hit');
+    playerAnimate.addEventListener('animationend', () => {
+        removeAnimationClass('hit');
+    }, { once: true });
+}
 
+function renderPlayerDyingAnimation() {
+    const playerAnimate = document.getElementById('player');
+    playerAnimate.classList.add('dying'); 
+    playerAnimate.addEventListener('animationend', renderPlayerDead, { once: true });
+}
 
-    playerAnimate.classList.remove('attack'); // Remove the 'attack' class to go back to the idle animation
+function renderPlayerDead() {
+    const playerAnimate = document.getElementById('player');
+    playerAnimate.classList.remove('dying'); 
+    playerAnimate.classList.add('dead'); 
 
 }
 
-export { renderPlayerAttackAnimation }
+export { renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation }

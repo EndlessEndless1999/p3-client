@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { Timer, Player, Enemy, EditorWrapper } from '../../components';
-import { checkIsGameOver, initializeGame, startEncounter} from '../../lib/initFunctions';
+import { checkIsGameOver, initializeGame, preloadSpriteSheets, startEncounter} from '../../lib/initFunctions';
 import { displayStats, playerAttack } from '../../lib/combatFunctions';
 
 const Game = () => {
@@ -9,6 +9,7 @@ const Game = () => {
   const [isAttackButtonDisabled, setIsAttackButtonDisabled] = useState(false);
   const [startTimer, setStartTimer] = useState(false);
 
+  preloadSpriteSheets()
 
   useEffect(() => {
     checkIsGameOver();
@@ -24,7 +25,7 @@ const Game = () => {
   const handleAttackClick = () => {
     if (!isAttackButtonDisabled) {
       setIsAttackButtonDisabled(true);
-      setTimeout(() => setIsAttackButtonDisabled(false), 4000);
+      setTimeout(() => setIsAttackButtonDisabled(false), 2000);
 
       playerAttack();
     }

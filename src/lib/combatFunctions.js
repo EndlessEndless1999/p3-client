@@ -1,5 +1,5 @@
 import { endGame, startEncounter } from "./initFunctions";
-import { renderPlayerAttackAnimation } from "./animationFunctions";
+import { renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation } from "./animationFunctions";
 
 
 function handleCombatEncounter(encounterData) {
@@ -69,6 +69,10 @@ function playerAttack() {
 function enemyTurn() {
     console.log("It is now the Enemy's turn")
 
+    // renderEnemyAttackAnimation()
+    setTimeout(() => renderPlayerHitAnimation(), 500);
+
+
     const combatState = getCombatState();
     const playerStats = getPlayerStats();
     const enemyStats = getEnemyStats();
@@ -80,6 +84,8 @@ function enemyTurn() {
         // updateHealthDisplay();
 
         if (playerStats.currHP <= 0) {
+            setTimeout(() => renderPlayerDyingAnimation(), 500);
+
             console.log('You have been defeated!')
             endCombat();
             endGame();
@@ -97,11 +103,11 @@ function switchTurn(enemy) {
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
 
     if (!combatState.isPlayerTurn) {
-        setTimeout(() => enemyTurn(enemy), 2000);
+        setTimeout(() => enemyTurn(enemy), 1000);
     }
 
     else {
-        setTimeout(() => playerTurn(), 2000);
+        setTimeout(() => playerTurn(), 1000);
     }
 }
 
@@ -128,13 +134,13 @@ function getCombatState() {
 }
 
 function getPlayerStats() {
-const playerStats = JSON.parse(sessionStorage.getItem('playerStats'));
-return playerStats;
+    const playerStats = JSON.parse(sessionStorage.getItem('playerStats'));
+    return playerStats;
 }
   
 function getEnemyStats() {
-const enemyStats = JSON.parse(sessionStorage.getItem('enemyStats'));
-return enemyStats;
+    const enemyStats = JSON.parse(sessionStorage.getItem('enemyStats'));
+    return enemyStats;
 }
 
 function displayStats() {

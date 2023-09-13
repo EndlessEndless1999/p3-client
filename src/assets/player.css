@@ -25,3 +25,29 @@
     0% { background-position: 0 0; }
     100% { background-position: -1760px 0; }
 }
+
+#player.hit {
+    background-image: url('./sprites/robot-hit-spritesheet.png');
+    animation: playerHit 0.5s steps(5) 1;
+}
+
+@keyframes playerHit {
+    0% { background-position: 0 0; }
+    100% { background-position: -800px 0; }
+}
+
+#player.dying {
+    background-image: url('./sprites/robot-dying-spritesheet.png');
+    animation: playerDying 0.5s steps(10) 1;
+}
+
+@keyframes playerDying {
+    0% { background-position: 0 0; }
+    100% { background-position: -1600px 0; }
+}
+
+#player.dead {
+    background-image: url('./sprites/robot-dying-spritesheet.png');
+    animation: none;
+    background-position: -1440px 0;
+}
