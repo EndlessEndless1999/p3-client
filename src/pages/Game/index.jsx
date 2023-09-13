@@ -37,13 +37,8 @@ const Game = () => {
 
   return (
     <>
-<<<<<<< HEAD
-        <Timer startTimer={startTimer} />
-      
-=======
       <Timer startTimer={startTimer} />
 
->>>>>>> f3a20cddefaa29ea47611531b40ada47edf35352
       <div className="characters">
         <div>
           <Player />  
