@@ -37,6 +37,7 @@ const Game = () => {
 
   return (
     <>
+    <div className="gameContainer">
       <Timer startTimer={startTimer} />
 
       <div className="characters">
@@ -71,6 +72,7 @@ const Game = () => {
 
         <div className="log">log</div>
       </div>
+    </div>
     </>
   );
 };

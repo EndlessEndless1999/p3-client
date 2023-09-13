@@ -13,6 +13,8 @@ h1 {
 }
 
 h2 {
+    display: flex;
+    justify-content: center;
     font-family: 'Bungee', cursive;
     font-weight: 400;
     font-size: 4rem;
@@ -23,6 +25,8 @@ h2 {
 }
 
 h3 {
+    display: flex;
+    justify-content: center;
     font-family: 'Bungee', cursive;
     font-weight: 400;
     font-size: 2em;

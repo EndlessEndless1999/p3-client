@@ -1,13 +1,5 @@
-.about {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
 p {
+    text-align: center;
     font-size: 1.25rem;
     line-height: 2rem;
 }
