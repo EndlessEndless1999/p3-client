@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Timer } from '../../components';
+import { Timer, Player, Enemy } from '../../components';
 import { checkIsGameOver, initializeGame, startEncounter} from '../../lib/initFunctions';
 import { displayStats, playerAttack } from '../../lib/combatFunctions';
 
@@ -41,7 +41,7 @@ const Game = () => {
 
       <div className="characters">
         <div>
-          <img src="temp-robot.png" alt="BuggyBot" />
+          <Player />  
         </div>
 
         <div>

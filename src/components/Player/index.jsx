@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react';
+import '../../assets/player.css'
 
 const Player = () => {
-  return (
-    <div>Player</div>
-  )
-}
+    const [isAnimating, setIsAnimating] = useState(false);
+  
+    const startAnimation = () => {
+      setIsAnimating(true);
+    };
+  
+
+  
+    return (
+      <div id="player" className="player">
+        <div
+          className={`sprite-animation ${isAnimating ? 'animate' : ''}`}
+          onClick={startAnimation}
+
+        ></div>
+      </div>
+    );
+  };
 
 export default Player

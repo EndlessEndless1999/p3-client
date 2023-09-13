@@ -1,4 +1,5 @@
 import { endGame, startEncounter } from "./initFunctions";
+import { renderPlayerAttackAnimation } from "./animationFunctions";
 
 
 function handleCombatEncounter(encounterData) {
@@ -38,7 +39,7 @@ function playerTurn() {
 
 
 function playerAttack() {
-    
+    renderPlayerAttackAnimation()
     const combatState = getCombatState();
     
     if (!combatState.isCombatOver && combatState.isPlayerTurn) {

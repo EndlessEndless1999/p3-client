@@ -1,0 +1,27 @@
+#player {
+    left: 20%;
+    top: 35%;
+    width: 160px;
+    height: 96px;
+    transform: scale(3);
+    background-image: url('./sprites/robot-idle-spritesheet.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: playerIdle 0.5s steps(4) infinite;
+
+}
+
+@keyframes playerIdle {
+    0% { background-position: 0 0; }
+    100% { background-position: -640px 0; }
+}
+
+#player.attack {
+    background-image: url('./sprites/robot-attack-spritesheet.png');
+    animation: playerAttack 0.5s steps(11) 1;
+}
+
+@keyframes playerAttack {
+    0% { background-position: 0 0; }
+    100% { background-position: -1760px 0; }
+}
