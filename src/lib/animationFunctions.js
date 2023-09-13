@@ -21,7 +21,7 @@ function renderPlayerHitAnimation() {
 
 function renderPlayerDyingAnimation() {
     const playerAnimate = document.getElementById('player');
-    playerAnimate.classList.add('dying'); 
+    playerAnimate.classList.add('dying');
     playerAnimate.addEventListener('animationend', renderPlayerDead, { once: true });
 }
 
@@ -32,4 +32,4 @@ function renderPlayerDead() {
 
 }
 
-export { renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation }
+export { renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation, removeAnimationClass }

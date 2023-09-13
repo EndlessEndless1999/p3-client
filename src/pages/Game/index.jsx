@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-import { Timer, Player, Enemy, EditorWrapper } from '../../components';
-import { checkIsGameOver, initializeGame, preloadSpriteSheets, startEncounter} from '../../lib/initFunctions';
+import { Timer, Player, Enemy, Logger, EditorWrapper } from '../../components';
+import { checkIsGameOver, initializeGame, startEncounter} from '../../lib/initFunctions';
 import { displayStats, playerAttack } from '../../lib/combatFunctions';
 
 const Game = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isAttackButtonDisabled, setIsAttackButtonDisabled] = useState(false);
   const [startTimer, setStartTimer] = useState(false);
-
-  preloadSpriteSheets()
 
   useEffect(() => {
     checkIsGameOver();
@@ -70,7 +68,9 @@ const Game = () => {
 
         </div>
 
-        <div className="log">log</div>
+        <div className="log">
+          <Logger />
+        </div>
       </div>
     </>
   );

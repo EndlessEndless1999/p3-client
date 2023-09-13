@@ -77,18 +77,6 @@ function checkIsGameOver() {
     return sessionStorage.getItem('isGameOver')
 }
 
-function preloadSpriteSheets() {
-    const spriteSheetUrls = [
-        '../src/assets/sprites/robot-idle-spritesheet.png',
-        '../src/assets/sprites/robot-attack-spritesheet.png',
-        '../src/assets/sprites/robot-hit-spritesheet.png',
-        '../src/assets/sprites/robot-dying-spritesheet.png'
-    ];
 
-    spriteSheetUrls.forEach(url => {
-        const img = new Image();
-        img.src = url;
-    });
-}
 
-export { initializeGame, getEncounterData, startEncounter, endGame, checkIsGameOver, preloadSpriteSheets }
+export { initializeGame, getEncounterData, startEncounter, endGame, checkIsGameOver }
