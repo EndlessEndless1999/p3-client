@@ -11,3 +11,23 @@ h1 {
     padding: 0;
     line-height: 1;
 }
+
+h2 {
+    font-family: 'Bungee', cursive;
+    font-weight: 400;
+    font-size: 4rem;
+    color: #FFC300;
+    -webkit-text-stroke-width: 0.1rem;
+    -webkit-text-stroke-color: #4D4847;
+    line-height: 1rem;
+}
+
+h3 {
+    font-family: 'Bungee', cursive;
+    font-weight: 400;
+    font-size: 2em;
+    color: #FFC300;
+    -webkit-text-stroke-width: 0.1rem;
+    -webkit-text-stroke-color: #4D4847;
+    line-height: 1rem;
+}
