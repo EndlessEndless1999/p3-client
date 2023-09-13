@@ -11,11 +11,12 @@ const NavBar = () => {
   const isLoginPage = location.pathname === '/login';
   const isRegisterPage = location.pathname === '/register';
   const isForgotPage = location.pathname === '/forgot-password';
+  const isResetPage = location.pathname === '/reset-password';
   const isNotFoundPage = location.pathname === '/notfound';
 
   return (
     <>
-      <nav className={`NavBar ${isHomePage ? 'hidden' : ''} ${isHighScoresPage || isSettingsPage || isHelpPage || isAboutPage || isLoginPage || isRegisterPage || isForgotPage || isNotFoundPage ? 'fixed' : ''}`}>
+      <nav className={`NavBar ${isHomePage ? 'hidden' : ''} ${isHighScoresPage || isSettingsPage || isHelpPage || isAboutPage || isLoginPage || isRegisterPage || isForgotPage || isResetPage || isNotFoundPage ? 'fixed' : ''}`}>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/game">Play</NavLink>
         <NavLink to="/high-scores">High Scores</NavLink>
