@@ -1,14 +1,13 @@
 #player {
     left: 20%;
-    top: 35%;
+    bottom: 60%;
     width: 160px;
     height: 96px;
     transform: scale(3);
     background-image: url('./sprites/robot-idle.png');
     background-repeat: no-repeat;
     position: absolute;
-    animation: playerIdle 0.5s steps(4) infinite;
-
+    animation: playerIdle 0.4s steps(4) infinite;
 }
 
 @keyframes playerIdle {
@@ -18,12 +17,12 @@
 
 #player.attack {
     background-image: url('./sprites/robot-attack.png');
-    animation: playerAttack 0.5s steps(11) 1;
+    animation: playerAttack 0.8s steps(8) 1;
 }
 
 @keyframes playerAttack {
     0% { background-position: 0 0; }
-    100% { background-position: -1760px 0; }
+    100% { background-position: -1280px 0; }
 }
 
 #player.hit {
@@ -38,7 +37,7 @@
 
 #player.dying {
     background-image: url('./sprites/robot-dying.png');
-    animation: playerDying 0.5s steps(10) 1;
+    animation: playerDying 1s steps(10) 1;
 }
 
 @keyframes playerDying {

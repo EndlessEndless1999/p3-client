@@ -46,9 +46,7 @@ const Game = () => {
         </div>
 
         <div>
-          <img src="temp-alien.png" alt="alien" />
-          <img src="temp-alien.png" alt="alien" />
-          <img src="temp-alien.png" alt="alien" />
+          <Enemy />
         </div>
       </div>
 

@@ -1,5 +1,7 @@
 import { endGame, startEncounter } from "./initFunctions";
-import { renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation } from "./animationFunctions";
+import { 
+    renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation,
+    renderEnemyAttackAnimation, renderEnemyHitAnimation, renderEnemyDyingAnimation } from "./animationFunctions";
 import { addMessageToLogger } from "./loggerUtils";
 
 
@@ -42,6 +44,8 @@ function playerTurn() {
 
 function handlePlayerAttack() {
     renderPlayerAttackAnimation()
+    setTimeout(() => renderEnemyHitAnimation(), 300);
+
     const combatState = getCombatState();
     
     if (!combatState.isCombatOver && combatState.isPlayerTurn) {
@@ -55,12 +59,11 @@ function handlePlayerAttack() {
         // updateHealthDisplay();
     
         if (enemyStats.currHP <= 0) {
+            setTimeout(() => renderEnemyDyingAnimation(), 300);
             addMessageToLogger('Enemy has been defeated!')
             endCombat();    
-            // Victory message then go to next encounter;
             setTimeout(() => startEncounter(), 2000);
 
-    
         } else {
             switchTurn();
         }
@@ -70,10 +73,8 @@ function handlePlayerAttack() {
 
 function enemyTurn() {
     addMessageToLogger("Enemy's turn")
-
-    // renderEnemyAttackAnimation()
-    setTimeout(() => renderPlayerHitAnimation(), 500);
-
+    renderEnemyAttackAnimation()
+    setTimeout(() => renderPlayerHitAnimation(), 100);
 
     const combatState = getCombatState();
     const playerStats = getPlayerStats();
