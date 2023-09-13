@@ -35,7 +35,7 @@ const Login = () => {
       <div>
         <NavLink to="/register">Haven't got an account? Register now!</NavLink>
         <br />
-        <NavLink to="/forgot">Forgot password?</NavLink>
+        <NavLink to="/forgot-password">Forgot password?</NavLink>
       </div>
     </div>
   );
