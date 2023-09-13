@@ -1,21 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 
-import { Timer } from '../../components'
+import { Timer, Player, Enemy } from '../../components';
+import { checkIsGameOver, initializeGame, startEncounter} from '../../lib/initFunctions';
+import { displayStats, playerAttack } from '../../lib/combatFunctions';
 
 const Game = () => {
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [isAttackButtonDisabled, setIsAttackButtonDisabled] = useState(false);
   const [startTimer, setStartTimer] = useState(false);
 
+
+  useEffect(() => {
+    checkIsGameOver();
+    displayStats();
+  }, []);
+
+  const handleStartGameClick = () => {
+    initializeGame();
+    startEncounter();
+    setIsGameStarted(true);
+  };
+
+  const handleAttackClick = () => {
+    if (!isAttackButtonDisabled) {
+      setIsAttackButtonDisabled(true);
+      setTimeout(() => setIsAttackButtonDisabled(false), 4000);
+
+      playerAttack();
+    }
+  };
+
   const handleLaunchCodeClick = () => {
+    console.log('launch code clicked');
     setStartTimer(true);
   };
 
   return (
     <>
+<<<<<<< HEAD
         <Timer startTimer={startTimer} />
       
+=======
+      <Timer startTimer={startTimer} />
+
+>>>>>>> f3a20cddefaa29ea47611531b40ada47edf35352
       <div className="characters">
         <div>
-          <img src="temp-robot.png" alt="BuggyBot" />
+          <Player />  
         </div>
 
         <div>
@@ -24,21 +55,29 @@ const Game = () => {
           <img src="temp-alien.png" alt="alien" />
         </div>
       </div>
-        
+
       <div className="playerContainer">
         <div className="code">
-          <button
-            onClick={handleLaunchCodeClick}
-          >
-            launch code</button>
+
+          {!isGameStarted && (
+            <button onClick={handleStartGameClick}>
+              Start Game</button>
+          )}
+          
+          {isGameStarted && (
+            <button onClick={handleAttackClick}
+            disabled={isAttackButtonDisabled}>
+              Attack</button>
+          )}
+
+          <button onClick={handleLaunchCodeClick}>Launch Code</button>
+
         </div>
 
-        <div className="log">
-          log
-        </div>
+        <div className="log">log</div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Game
+export default Game;
