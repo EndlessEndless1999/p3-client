@@ -3,6 +3,7 @@ button {
     background-color: #FAFAFA;
     width: 5rem;
     height: 3rem;
+    cursor: pointer;
 }
 
 button:hover {
