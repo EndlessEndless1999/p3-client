@@ -12,7 +12,7 @@ function initializeGame() {
 
     sessionStorage.setItem('playerStats', JSON.stringify(playerStats));
     sessionStorage.setItem('isGameOver', (isGameOver));
-    console.log('Game initialized') // debug logs
+    console.log('Game initialized') 
 }
 
 
