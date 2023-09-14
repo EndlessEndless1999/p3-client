@@ -1,14 +1,13 @@
 import { handleCombatEncounter } from "./combatFunctions";
 import { addMessageToLogger } from "./loggerUtils";
-
+import axios from 'axios'
 
 function initializeGame() {
     const playerStats = {
-        currHP: 40,
-        maxHP: 20,
-        attack: 4,
+        currHP: 100,
+        maxHP: 100,
+        attack: 10,
     };
-
     const isGameOver = false
 
     sessionStorage.setItem('playerStats', JSON.stringify(playerStats));
@@ -18,28 +17,28 @@ function initializeGame() {
 
 
 function getEncounterData() {
-    // Pull encounter data from database:
-    //      type - determines how the encounter is structured on the UI, how many buttons are presented to the player, whether there is an enemy or not
-    //      text
-    //      enemy stats (if any)
 
-    // Placeholder encounter data:
-    const encounterData = {
-        type: "combat", // could be "traversal" or "checkpoint"
-        text: "An alien creature aggressively approaches you.",
-        enemyStats : {  // could be empty if encounterData.type is not "combat"
-            currHP: 10,
-            maxHP: 10,
-            attack: 10,
-        }
-    }
-    console.log('Encounter initialized')
-    console.log('encounterData', encounterData)
-    return encounterData
+    let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: 'https://amazingapp.tplinkdns.com/users/encounter',
+
+    };
+    return axios.request(config)
+    .then((response) => {
+        
+       const encounterData = response.data;
+       return encounterData
+
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+
 }
 
 
-function startEncounter() {
+async function startEncounter() {
     addMessageToLogger('--- ANOMALY DETECTED ---')
     if (checkIsGameOver() == 'true') {
         endGame()
@@ -48,9 +47,12 @@ function startEncounter() {
         console.log('Game continues')
     }
 
-    const encounterData = getEncounterData();
+    const encounterData = await getEncounterData();
     console.log('Encounter started')
+    console.log('encounterData:', encounterData)
+
     switch (encounterData.type) {
+        
         case "checkpoint":
             // handleCheckpointEncounter();
             break;

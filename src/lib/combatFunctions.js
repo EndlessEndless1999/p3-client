@@ -1,7 +1,7 @@
 import { endGame, startEncounter } from "./initFunctions";
 import { 
     renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation,
-    renderEnemyAttackAnimation, renderEnemyHitAnimation, renderEnemyDyingAnimation } from "./animationFunctions";
+    renderEnemyAttackAnimation, renderEnemyHitAnimation, renderEnemyDyingAnimation, resetEnemyAnimation } from "./animationFunctions";
 import { addMessageToLogger } from "./loggerUtils";
 
 
@@ -15,6 +15,7 @@ function handleCombatEncounter(encounterData) {
 
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
     initializeEnemy(encounterData);
+    resetEnemyAnimation();
     playerTurn();
 }
 
@@ -33,7 +34,7 @@ function initializeEnemy(encounterData) {
 
 function playerTurn() {
     displayStats();
-    addMessageToLogger("Buggy's turn!");
+    addMessageToLogger("Awaiting command!");
     const combatState = getCombatState();
 
     if (!combatState.isCombatOver && combatState.isPlayerTurn) {
@@ -60,7 +61,7 @@ function handlePlayerAttack() {
     
         if (enemyStats.currHP <= 0) {
             setTimeout(() => renderEnemyDyingAnimation(), 300);
-            addMessageToLogger('Enemy has been defeated!')
+            addMessageToLogger('Threat neutralized!')
             endCombat();    
             setTimeout(() => startEncounter(), 2000);
 
