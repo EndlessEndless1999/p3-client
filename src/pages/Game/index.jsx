@@ -13,6 +13,7 @@ const Game = () => {
   const [editorOpen, setEditorOpen] = useState(false);
   const [question, setQuestion] = useState('');
   const [testCases, setTestCases] = useState('');
+  const [func, setFunc] = useState('');
 
   useEffect(() => {
     checkIsGameOver();
@@ -37,6 +38,7 @@ const Game = () => {
     console.log(data);
     console.log('launch code clicked');
     setQuestion(data.title);
+    setFunc(data.func)
     setStartTimer(true);
     setEditorOpen(true);
   };
@@ -59,24 +61,27 @@ const Game = () => {
       <div className="playerContainer">
         <div className="code">
          
-          {!isGameStarted && (
+          {!isGameStarted && !editorOpen &&(
             <button onClick={handleStartGameClick}>
               Start Game</button>
           )}
           
-          {isGameStarted && (
+          {isGameStarted && !editorOpen &&(
             <button onClick={handleAttackClick}
             disabled={isAttackButtonDisabled}>
               Attack</button>
           )}
 
-          {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen} testCases={testCases} setTestCases={setTestCases} question={question}/>}
+          {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen} testCases={testCases} setTestCases={setTestCases} question={question} function={func}/>}
 
-          <motion.button
-           onClick={handleLaunchCodeClick}
-           whileHover={{scale: 1.1}}
-           whileTap={{scale: 0.9}}
-           >Launch Code</motion.button>
+          {isGameStarted && !editorOpen &&(
+            <motion.button
+            onClick={handleLaunchCodeClick}
+            whileHover={{scale: 1.1}}
+            whileTap={{scale: 0.9}}
+            >Launch Code</motion.button>
+          )}
+
 
         </div>
 

@@ -9,11 +9,13 @@ const NewEditor = (props) => {
 
     return (
         <CodeMirror
+        
         className='code-mirror'
         onChange={(value) => {
             props.setCode(value);  
             console.log(props.code);
         }}
+        value={props.function}
         extensions={[python({ jsx: true })]}
         theme={draculaInit({
             settings: {

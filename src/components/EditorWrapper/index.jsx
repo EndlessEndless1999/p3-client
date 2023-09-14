@@ -53,7 +53,7 @@ const EditorWrapper = (props) => {
           exit="exit"
         >
           <h4>{props.question}</h4>
-          <NewEditor code={code} setCode={setCode}/>
+          <NewEditor code={code} setCode={setCode} function={props.function}/>
           <button className='submit-btn' onClick={handleClick}>Submit</button>
         </motion.div>
     )
