@@ -10,7 +10,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className="account">
       <h2>Login</h2>
       <div className="username">
         <label htmlFor="username">Username:</label>
@@ -30,7 +30,12 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <button onClick={handleLogin}>Login</button>
+      <button 
+        onClick={handleLogin}
+        className="accountButton"
+      >
+        Login
+      </button>
 
       <div>
         <NavLink to="/register">Haven't got an account? Register now!</NavLink>

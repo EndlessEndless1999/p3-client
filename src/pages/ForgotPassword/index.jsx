@@ -9,7 +9,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="forgot">
+    <div className="account">
       <h2>Forgot Password</h2>
       <div className="email">
         <label htmlFor="email">Email:</label>
@@ -20,7 +20,12 @@ const ForgotPassword = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <button onClick={handleResetPassword}>Reset Password</button>
+      <button 
+        onClick={handleResetPassword}
+        className="accountButton"
+      >
+        Submit
+      </button>
       {message && <p>{message}</p>}
     </div>
   );
