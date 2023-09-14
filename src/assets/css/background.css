@@ -1,0 +1,29 @@
+.gameContainer {
+    min-width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.game-bg {
+    position: absolute;
+    overflow: hidden;
+    left: 0px;
+    bottom: 60%;
+    width: 1536px;
+    height: 256px;
+    transform: scale(2.5);
+    background-image: url('../backgrounds/game-bg.png');
+    background-size: 100% 100%;
+}
+
+.game-ground {
+    position: absolute;
+    overflow: hidden;
+    width: 1920px;
+    height: 160px;
+    left: 0px;
+    bottom: 45%;
+    transform: scale(2.5);
+    background-image: url('../backgrounds/game-ground.png');
+    background-size: 100% 100%;
+}

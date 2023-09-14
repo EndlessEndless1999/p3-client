@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
 
-import { Timer, Player, Enemy, Logger, EditorWrapper } from '../../components';
+import { Timer, Player, Enemy, Logger, EditorWrapper, Background } from '../../components';
 import { checkIsGameOver, initializeGame, startEncounter} from '../../lib/initFunctions';
 import { displayStats, handlePlayerAttack } from '../../lib/combatFunctions';
 import './index.css'
+import '../../assets/css/background.css'
 
 const Game = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -45,7 +46,8 @@ const Game = () => {
   return (
     <>
     <div className="gameContainer" role="main">
-      <Timer startTimer={startTimer} />
+      <Background id="background-component" />
+      <Timer id="timer-component" startTimer={startTimer} />
 
       <div className="characters">
         <div>

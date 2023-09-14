@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Roboto+Mono&display=swap');
 
 body {
-    /* background-image: url('/temp-bg.jpg');
-    background-size: cover;
+    background-image: url('../backgrounds/menu-bg.png');
     background-repeat: no-repeat;
-    background-color: #000F08; */
+    background-size: cover;
 }
 
 .nav {

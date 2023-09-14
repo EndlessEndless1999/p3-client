@@ -13,4 +13,5 @@
     color: white;
     width: 8rem;
     height: 4rem;
+    z-index: 2;
 }
