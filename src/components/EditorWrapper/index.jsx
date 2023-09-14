@@ -13,7 +13,7 @@ const EditorWrapper = (props) => {
   
     const handleClick = async (e) => {
       e.preventDefault();
-      print(code, props.id);
+      console.log(code, props.id);
       const response = await axios.post('https://amazingapp.tplinkdns.com/users/code', {code: code, _id: props.id}).then((data) => {
       console.log(data.result);  
       props.setTestCases(data.result)
