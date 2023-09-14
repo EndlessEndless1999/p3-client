@@ -52,8 +52,8 @@ const EditorWrapper = (props) => {
           animate="visible"
           exit="exit"
         >
-          <h4>Reverse a String!</h4>
-          <NewEditor code={code} setCode={setCode}/>
+          <h4>{props.question}</h4>
+          <NewEditor code={code} setCode={setCode} function={props.function}/>
           <button className='submit-btn' onClick={handleClick}>Submit</button>
         </motion.div>
     )
