@@ -1,5 +1,20 @@
 import { getPlayerStats, getEnemyStats } from "./combatFunctions";
 
+// Screen shake effect
+function shakeBackground() {
+    const gameBg = document.querySelector('.game-bg');
+    const gameGround = document.querySelector('.game-ground');
+    
+    gameBg.classList.add('shake');
+    gameGround.classList.add('shake');
+  
+    setTimeout(() => {
+      gameBg.classList.remove('shake');
+      gameGround.classList.remove('shake');
+    }, 200);
+}
+
+// Healthbar animations
 function updatePlayerHealthbar() {
     const healthFill = document.getElementById("player-health-fill");
     const playerStats = getPlayerStats()
@@ -16,7 +31,7 @@ function updateEnemyHealthbar() {
     healthFill.style.setProperty("--maxHP", enemyStats.maxHP);
 }
 
-
+// Player animations
 function removePlayerAnimationClass(className) {
     const playerAnimate = document.getElementById('player');
     playerAnimate.classList.remove(className);
@@ -98,5 +113,6 @@ function resetEnemyAnimation() {
 export { 
     renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation, resetPlayerAnimation,
     renderEnemyAttackAnimation, renderEnemyHitAnimation, renderEnemyDyingAnimation, resetEnemyAnimation,
-    updatePlayerHealthbar, updateEnemyHealthbar
+    updatePlayerHealthbar, updateEnemyHealthbar,
+    shakeBackground
 }

@@ -56,6 +56,7 @@ const Game = () => {
       <Background id="background-component" />
       <Timer id="timer-component" startTimer={startTimer} />
 
+      {isGameStarted &&(
       <div className="characters">
         <div>
           <Player />  
@@ -65,6 +66,7 @@ const Game = () => {
           <Enemy />
         </div>
       </div>
+      )}
 
       <div className="playerContainer">
         <div className="code">

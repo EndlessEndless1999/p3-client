@@ -2,7 +2,8 @@ import { endGame, startEncounter } from "./initFunctions";
 import { 
     renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation,
     renderEnemyAttackAnimation, renderEnemyHitAnimation, renderEnemyDyingAnimation, resetEnemyAnimation,
-    updatePlayerHealthbar, updateEnemyHealthbar
+    updatePlayerHealthbar, updateEnemyHealthbar,
+    shakeBackground
 } from "./animationFunctions";
 import { addMessageToLogger } from "./loggerUtils";
 
@@ -47,7 +48,10 @@ function playerTurn() {
 
 function handlePlayerAttack() {
     renderPlayerAttackAnimation()
-    setTimeout(() => renderEnemyHitAnimation(), 300);
+    setTimeout(() => {
+        renderEnemyHitAnimation(),
+        shakeBackground()
+    }, 300);
 
     const combatState = getCombatState();
     
@@ -76,7 +80,10 @@ function handlePlayerAttack() {
 
 function enemyTurn() {
     renderEnemyAttackAnimation()
-    setTimeout(() => renderPlayerHitAnimation(), 300);
+    setTimeout(() => {
+        renderPlayerHitAnimation(),
+        shakeBackground()
+    }, 300);
 
     const combatState = getCombatState();
     const playerStats = getPlayerStats();
