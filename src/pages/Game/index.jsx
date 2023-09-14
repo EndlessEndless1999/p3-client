@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import { Timer, Player, Enemy, Logger, EditorWrapper } from '../../components';
 import { checkIsGameOver, initializeGame, startEncounter} from '../../lib/initFunctions';
 import { displayStats, handlePlayerAttack } from '../../lib/combatFunctions';
+import './index.css'
 
 const Game = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isAttackButtonDisabled, setIsAttackButtonDisabled] = useState(false);
   const [startTimer, setStartTimer] = useState(false);
   const [editorOpen, setEditorOpen] = useState(false)
+  const [testCases, setTestCases] = useState('');
+
+  preloadSpriteSheets()
 
   useEffect(() => {
     checkIsGameOver();
@@ -36,7 +40,6 @@ const Game = () => {
 
   return (
     <>
-    {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen}/>}
     <div className="gameContainer">
       <Timer startTimer={startTimer} />
 
@@ -52,8 +55,7 @@ const Game = () => {
 
       <div className="playerContainer">
         <div className="code">
-        
-
+         
           {!isGameStarted && (
             <button onClick={handleStartGameClick}>
               Start Game</button>
@@ -64,6 +66,8 @@ const Game = () => {
             disabled={isAttackButtonDisabled}>
               Attack</button>
           )}
+
+          {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen} testCases={testCases} setTestCases={setTestCases}/>}
 
           <motion.button
            onClick={handleLaunchCodeClick}
