@@ -1,4 +1,22 @@
-// Player animations
+import { getPlayerStats, getEnemyStats } from "./combatFunctions";
+
+function updatePlayerHealthbar() {
+    const healthFill = document.getElementById("player-health-fill");
+    const playerStats = getPlayerStats()
+
+    healthFill.style.setProperty("--currHP", playerStats.currHP);
+    healthFill.style.setProperty("--maxHP", playerStats.maxHP);
+}
+
+function updateEnemyHealthbar() {
+    const healthFill = document.getElementById("enemy-health-fill");
+    const enemyStats = getEnemyStats()
+
+    healthFill.style.setProperty("--currHP", enemyStats.currHP);
+    healthFill.style.setProperty("--maxHP", enemyStats.maxHP);
+}
+
+
 function removePlayerAnimationClass(className) {
     const playerAnimate = document.getElementById('player');
     playerAnimate.classList.remove(className);
@@ -79,5 +97,6 @@ function resetEnemyAnimation() {
 
 export { 
     renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation, resetPlayerAnimation,
-    renderEnemyAttackAnimation, renderEnemyHitAnimation, renderEnemyDyingAnimation, resetEnemyAnimation
+    renderEnemyAttackAnimation, renderEnemyHitAnimation, renderEnemyDyingAnimation, resetEnemyAnimation,
+    updatePlayerHealthbar, updateEnemyHealthbar
 }

@@ -1,3 +1,19 @@
+.player-health-bar {
+    width: 200px;
+    height: 20px;
+    left: 28.5%;
+    bottom: 70%;
+    background-color: #ccc; 
+    border: 1px solid #000; 
+    position: absolute;
+}
+
+.player-health-fill {
+    height: 100%;
+    width: calc((var(--currHP) / var(--maxHP)) * 100%);
+    background-color: red;
+}
+  
 #player {
     left: 30%;
     bottom: 57%;

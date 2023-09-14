@@ -1,7 +1,9 @@
 import { endGame, startEncounter } from "./initFunctions";
 import { 
     renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation,
-    renderEnemyAttackAnimation, renderEnemyHitAnimation, renderEnemyDyingAnimation, resetEnemyAnimation } from "./animationFunctions";
+    renderEnemyAttackAnimation, renderEnemyHitAnimation, renderEnemyDyingAnimation, resetEnemyAnimation,
+    updatePlayerHealthbar, updateEnemyHealthbar
+} from "./animationFunctions";
 import { addMessageToLogger } from "./loggerUtils";
 
 
@@ -57,7 +59,8 @@ function handlePlayerAttack() {
         enemyStats.currHP -= playerStats.attack;
         addMessageToLogger(`Buggy dealt ${playerStats.attack} damage!`)
         updateEnemyCurrHP(enemyStats.currHP)
-        // updateHealthDisplay();
+        setTimeout(() => updateEnemyHealthbar(), 300);
+        setTimeout(() => updateEnemyHealthbar(), 300);
     
         if (enemyStats.currHP <= 0) {
             setTimeout(() => renderEnemyDyingAnimation(), 300);
@@ -73,7 +76,6 @@ function handlePlayerAttack() {
 
 
 function enemyTurn() {
-    addMessageToLogger("Enemy's turn")
     renderEnemyAttackAnimation()
     setTimeout(() => renderPlayerHitAnimation(), 100);
 
@@ -82,11 +84,11 @@ function enemyTurn() {
     const enemyStats = getEnemyStats();
     
     if (!combatState.isCombatOver && !combatState.isPlayerTurn) {
-        playerStats.currHP -= enemyStats.attack
-        setTimeout(() => addMessageToLogger('Enemy attacked Buggy!'), 250);
-        setTimeout(() => addMessageToLogger(`Enemy dealt ${playerStats.attack} damage!`), 250);
-        updatePlayerCurrHP(playerStats.currHP)
-        // updateHealthDisplay();
+        playerStats.currHP -= enemyStats.attack;
+        addMessageToLogger(`Enemy attacked and dealt ${playerStats.attack} damage!`)
+        updatePlayerCurrHP(playerStats.currHP);
+        setTimeout(() => updatePlayerHealthbar(), 100);
+        setTimeout(() => updatePlayerHealthbar(), 100);
 
         if (playerStats.currHP <= 0) {
             setTimeout(() => renderPlayerDyingAnimation(), 500);
@@ -107,7 +109,7 @@ function switchTurn(enemy) {
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
 
     if (!combatState.isPlayerTurn) {
-        setTimeout(() => enemyTurn(enemy), 1000);
+        setTimeout(() => enemyTurn(enemy), 1500);
     }
 
     else {
@@ -161,4 +163,4 @@ function endCombat() {
 
 }
 
-export { handleCombatEncounter, initializeEnemy, playerTurn, handlePlayerAttack, displayStats, getCombatState }
+export { handleCombatEncounter, initializeEnemy, playerTurn, handlePlayerAttack, displayStats, getCombatState, getPlayerStats, getEnemyStats }

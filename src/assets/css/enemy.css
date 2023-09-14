@@ -1,3 +1,19 @@
+.enemy-health-bar {
+    width: 200px;
+    height: 20px;
+    right: 35%;
+    bottom: 70%;
+    background-color: #ccc; 
+    border: 1px solid #000; 
+    position: absolute;
+}
+
+.enemy-health-fill {
+    height: 100%;
+    width: calc((var(--currHP) / var(--maxHP)) * 100%);
+    background-color: red;
+}
+
 #enemy {
     right: 40%;
     bottom: 50%;
