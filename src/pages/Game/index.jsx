@@ -15,6 +15,8 @@ const Game = () => {
   const [question, setQuestion] = useState('');
   const [testCases, setTestCases] = useState('');
   const [func, setFunc] = useState('');
+  const [id, setId] = useState('');
+  const [tests, setTests] = useState('');
 
   useEffect(() => {
     checkIsGameOver();
@@ -33,12 +35,14 @@ const Game = () => {
   };
 
   const handleLaunchCodeClick = async () => {
-    const response = await fetch('http://localhost:3000/question')
+    const response = await fetch('https://amazingapp.tplinkdns.com/users/code')
     const data = await response.json();
     console.log(data);
     console.log('launch code clicked');
-    setQuestion(data.title);
-    setFunc(data.func)
+    setQuestion(data.codeSnippet.question);
+    setFunc(data.codeSnippet.funcName);
+    setId(data.codeSnippet._id);
+    setTests(data.codeSnippet.tests);
     setStartTimer(true);
     setEditorOpen(true);
   };
@@ -73,7 +77,7 @@ const Game = () => {
               Attack</button>
           )}
 
-          {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen} testCases={testCases} setTestCases={setTestCases} question={question} function={func} setIsAttackButtonDisabled={setIsAttackButtonDisabled}/>}
+          {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen} testCases={testCases} setTestCases={setTestCases} question={question} function={func} setIsAttackButtonDisabled={setIsAttackButtonDisabled} id={id}/>}
 
           {isGameStarted && !editorOpen &&(
             <motion.button

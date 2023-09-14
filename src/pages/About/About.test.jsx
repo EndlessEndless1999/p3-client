@@ -27,7 +27,7 @@ describe('About Page', () => {
   });
 
   it('displays the game description text', () => {
-    const gameDescription = screen.getByText(/Title Here: The Language of Coding/i);
+    const gameDescription = screen.getByText(/Refactory/i);
     expect(gameDescription).toBeInTheDocument();
   });
 
