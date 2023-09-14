@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'
 
-import { Timer, Player, Enemy, EditorWrapper } from '../../components';
-import { checkIsGameOver, initializeGame, preloadSpriteSheets, startEncounter} from '../../lib/initFunctions';
-import { displayStats, playerAttack } from '../../lib/combatFunctions';
+import { Timer, Player, Enemy, Logger, EditorWrapper } from '../../components';
+import { checkIsGameOver, initializeGame, startEncounter} from '../../lib/initFunctions';
+import { displayStats, handlePlayerAttack } from '../../lib/combatFunctions';
 import './index.css'
 
 const Game = () => {
@@ -27,12 +27,9 @@ const Game = () => {
   };
 
   const handleAttackClick = () => {
-    if (!isAttackButtonDisabled) {
-      setIsAttackButtonDisabled(true);
-      setTimeout(() => setIsAttackButtonDisabled(false), 2000);
-
-      playerAttack();
-    }
+    setIsAttackButtonDisabled(true);
+    setTimeout(() => setIsAttackButtonDisabled(false), 2000);
+    handlePlayerAttack();
   };
 
   const handleLaunchCodeClick = () => {
@@ -52,9 +49,7 @@ const Game = () => {
         </div>
 
         <div>
-          <img src="temp-alien.png" alt="alien" />
-          <img src="temp-alien.png" alt="alien" />
-          <img src="temp-alien.png" alt="alien" />
+          <Enemy />
         </div>
       </div>
 
@@ -82,7 +77,9 @@ const Game = () => {
 
         </div>
 
-        <div className="log">log</div>
+        <div className="logger">
+          <Logger />
+        </div>
       </div>
     </div>
     </>

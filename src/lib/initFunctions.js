@@ -1,4 +1,5 @@
 import { handleCombatEncounter } from "./combatFunctions";
+import { addMessageToLogger } from "./loggerUtils";
 
 
 function initializeGame() {
@@ -39,7 +40,7 @@ function getEncounterData() {
 
 
 function startEncounter() {
-    
+    addMessageToLogger('--- ANOMALY DETECTED ---')
     if (checkIsGameOver() == 'true') {
         endGame()
     }
@@ -57,38 +58,25 @@ function startEncounter() {
             // handleTraversalEncounter();
             break;
         case "combat":
-            handleCombatEncounter(encounterData);
+            addMessageToLogger(encounterData.text)
+            setTimeout(() => handleCombatEncounter(encounterData), 2000);
             break;
         default:
             console.error("Unknown encounter type: " + encounterData.type);
     }
-    
 }
-
 
 function endGame() {
     sessionStorage.setItem('isGameOver', 'true');
-    console.log("Game ended"); // debug logs
+    console.log("Game ended");
 
 }
 
 function checkIsGameOver() {
-    console.log("checking isGameOver:", sessionStorage.getItem('isGameOver')); // debug logs
+    console.log("checking isGameOver:", sessionStorage.getItem('isGameOver'));
     return sessionStorage.getItem('isGameOver')
 }
 
-function preloadSpriteSheets() {
-    const spriteSheetUrls = [
-        '../src/assets/sprites/robot-idle-spritesheet.png',
-        '../src/assets/sprites/robot-attack-spritesheet.png',
-        '../src/assets/sprites/robot-hit-spritesheet.png',
-        '../src/assets/sprites/robot-dying-spritesheet.png'
-    ];
 
-    spriteSheetUrls.forEach(url => {
-        const img = new Image();
-        img.src = url;
-    });
-}
 
-export { initializeGame, getEncounterData, startEncounter, endGame, checkIsGameOver, preloadSpriteSheets }
+export { initializeGame, getEncounterData, startEncounter, endGame, checkIsGameOver }

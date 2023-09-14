@@ -1,0 +1,52 @@
+#enemy {
+    right: 30%;
+    bottom: 51.5%;
+    width: 60px;
+    height: 40px;
+    transform: scale(3);
+    background-image: url('./sprites/pirate-idle.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: enemyIdle 0.6s steps(6) infinite;
+}
+
+@keyframes enemyIdle {
+    0% { background-position: 0 0; }
+    100% { background-position: -360px 0; }
+}
+
+#enemy.attack {
+    background-image: url('./sprites/pirate-attack.png');
+    animation: enemyAttack 0.6s steps(6) 1;
+}
+
+@keyframes enemyAttack {
+    0% { background-position: 0 0; }
+    100% { background-position: -360px 0; }
+}
+
+#enemy.hit {
+    background-image: url('./sprites/pirate-hit.png');
+    animation: enemyHit 0.4s steps(4) 1;
+}
+
+@keyframes enemyHit {
+    0% { background-position: 0 0; }
+    100% { background-position: -240px 0; }
+}
+
+#enemy.dying {
+    background-image: url('./sprites/pirate-dying.png');
+    animation: enemyDying 0.8s steps(8) 1;
+}
+
+@keyframes enemyDying {
+    0% { background-position: 0 0; }
+    100% { background-position: -480px 0; }
+}
+
+#enemy.dead {
+    background-image: url('./sprites/pirate-dying.png');
+    animation: none;
+    background-position: -420px 0;
+}

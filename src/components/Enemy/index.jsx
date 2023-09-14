@@ -1,8 +1,11 @@
 import React from 'react'
+import '../../assets/enemy.css';
 
 const Enemy = () => {
   return (
-    <div>Enemy</div>
+    <div id="enemy">
+
+    </div>
   )
 }
 
