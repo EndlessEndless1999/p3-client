@@ -22,11 +22,11 @@ describe('HomeNav Component', () => {
     cleanup();
   });
 
-  it('displays a HomeNav with 5 children', () => {
+  it('displays a HomeNav with 4 children', () => {
     const nav = screen.getByRole('navigation')
 
     expect(nav).toBeInTheDocument()
-    expect(nav.childNodes.length).toBe(5)
+    expect(nav.childNodes.length).toBe(4)
   })
 
   it('displays the "Play" navigation link', () => {
@@ -37,11 +37,6 @@ describe('HomeNav Component', () => {
   it('displays the "High Scores" navigation link', () => {
     const highScoresLink = screen.getByText('High Scores');
     expect(highScoresLink).toBeInTheDocument();
-  });
-
-  it('displays the "Settings" navigation link', () => {
-    const settingsLink = screen.getByText('Settings');
-    expect(settingsLink).toBeInTheDocument();
   });
 
   it('displays the "Help" navigation link', () => {

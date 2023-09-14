@@ -22,7 +22,7 @@ describe('Home Page', () => {
     });
   
     it('displays the title', () => {
-      const title = screen.getByText('Title here');
+      const title = screen.getByText('Refactory');
       expect(title).toBeInTheDocument();
     });
   });

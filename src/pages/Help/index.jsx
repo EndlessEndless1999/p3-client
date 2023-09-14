@@ -4,31 +4,28 @@ const Help = () => {
   return (
     <div className="howToPlay">
       <h2>How to Play</h2>
+      <h3>Objective</h3>
       <p>
-        You are a cowardly scientist who has crash-landed on an unexplored planet. You need to survive for as long as possible with the help of your robot companion.
+        You are a cowardly scientist who has crash-landed on an unexplored planet, and your goal is to survive for as long as possible with the help of your trusty robot companion - Buggy Bot!
       </p>
+
+      <h3>Gameplay</h3>
       <p>
-        Combat encounters in this game are turn-based. During your turn, you will need to debug some codes for your robot to perform specific actions:
-        <br />
-        <strong>ATTACK:</strong> Deal damage to enemies
-        <br />
-        <strong>HEAL:</strong>Restore your robot's health
-        <br />
-        <strong>SHIELD:</strong> Protect your robot from enemy attacks
-        <br />
-        <strong>RUN:</strong>RUN: Attempt to escape from the encounter
+        The game features turn-based combat encounters where you must program your robot to perform actions: ATTACK, HEAL, SHIELD, or RUN.<br />
+        Each turn, you have a limited amount of time to program your robot before enemies attack.<br />
+        Be strategic in your choices to defeat enemies and stay alive.
       </p>
+
+      <h3>Debugging</h3>
       <p>
-        Be quick in making your decisions because you only have a limited time before the enemies attack!
+        If your robot takes damage, your code will become filled with bugs. You must debug your script to make the robot function properly again.
       </p>
+      <h3>Endless Survival</h3>
       <p>
-        Your adventure will continue until you either meet your demise or defeat the final boss.
-      </p>
-      <p>
-        Get ready for an exciting and challenging journey on the unexplored planet!
+        Your journey continues until you either succumb to the challenges or defeat a final boss.
       </p>
       <br />
-      <h4>Good luck!</h4>
+      <p>Good luck, brave scientist! It's time to show your coding skills and conquer the challenges of the unexplored planet.</p>
     </div>
   )
 }

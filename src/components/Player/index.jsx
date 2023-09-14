@@ -1,5 +1,5 @@
-import React from 'react';
-import '../../assets/player.css';
+import React, { useState } from 'react';
+import '../../assets/css/player.css'
 
 const Player = () => {
   return (
