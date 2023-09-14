@@ -5,13 +5,6 @@ const NotFound = () => {
     <>
       <div className="notFound">
         <h1 className="notFoundHeader">404! Page Not Found!</h1>
-        <a href="/">
-          <button
-            className="notFoundButton"
-          >
-            Home
-          </button>
-        </a>
       </div>
       
       

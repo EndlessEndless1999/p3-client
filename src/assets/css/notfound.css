@@ -7,16 +7,3 @@
 .notFoundHeader {
     font-size: 5rem;
 }
-
-.notFoundButton {
-    margin: 2rem;
-    border: 0.1rem solid #000;
-    width: 10rem;
-    height: 5rem;
-    line-height: 0rem;
-    font-family: 'Bungee', cursive;
-    color: #FFC300;
-    -webkit-text-stroke-width: 0.1rem;
-    -webkit-text-stroke-color: #4D4847;
-    font-size: 2rem;
-}
