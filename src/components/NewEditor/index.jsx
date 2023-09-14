@@ -16,6 +16,7 @@ const NewEditor = (props) => {
             console.log(props.code);
         }}
         value={props.function}
+        fontSize='50'
         extensions={[python({ jsx: true })]}
         theme={draculaInit({
             settings: {

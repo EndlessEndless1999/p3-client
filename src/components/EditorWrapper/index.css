@@ -1,4 +1,5 @@
 .modal {
+    all: initial;
     margin-top: 50%;
     width: 50%;
     height: 50%;
@@ -7,5 +8,6 @@
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: none;
+    font-size: 40px;
 }

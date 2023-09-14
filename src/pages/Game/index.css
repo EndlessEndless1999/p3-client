@@ -6,4 +6,18 @@
 .modal {
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: large;
+}
+
+h4 {
+    bottom: 50%
+}
+
+.submit-btn {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 5%;
 }
