@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../assets/enemy.css';
+import '../../assets/css/enemy.css';
 
 const Enemy = () => {
   return (

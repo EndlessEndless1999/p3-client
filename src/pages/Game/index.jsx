@@ -13,8 +13,6 @@ const Game = () => {
   const [editorOpen, setEditorOpen] = useState(false)
   const [testCases, setTestCases] = useState('');
 
-  preloadSpriteSheets()
-
   useEffect(() => {
     checkIsGameOver();
     displayStats();
