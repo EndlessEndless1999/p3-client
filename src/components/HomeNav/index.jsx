@@ -5,10 +5,10 @@ const HomeNav = () => {
   return (
     <>
       <nav className="nav">
-        <NavLink to="/game">Play</NavLink>
-        <NavLink to="/high-scores">High Scores</NavLink>
-        <NavLink to="/help">Help</NavLink>
-        <NavLink to="/about">About</NavLink>
+        <NavLink className="NavLink" to="/game">Play</NavLink>
+        <NavLink className="NavLink" to="/high-scores">High Scores</NavLink>
+        <NavLink className="NavLink" to="/help">Help</NavLink>
+        <NavLink className="NavLink" to="/about">About</NavLink>
       </nav>
       <Outlet />
     </>

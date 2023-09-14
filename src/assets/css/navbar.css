@@ -29,3 +29,7 @@
   -webkit-text-stroke-width: 0.1rem;
   -webkit-text-stroke-color: #D90429;
 }
+
+.NavLink:hover {
+  transform: scale(1.1);
+}
