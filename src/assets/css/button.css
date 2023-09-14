@@ -1,0 +1,10 @@
+button {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #FAFAFA;
+    width: 5rem;
+    height: 3rem;
+}
+
+button:hover {
+    background-color: #f2f2f2;
+}
