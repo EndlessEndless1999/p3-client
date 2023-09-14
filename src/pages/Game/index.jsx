@@ -28,7 +28,6 @@ const Game = () => {
 
   const handleAttackClick = () => {
     setIsAttackButtonDisabled(true);
-    setTimeout(() => setIsAttackButtonDisabled(false), 2000);
     handlePlayerAttack();
   };
 
@@ -72,7 +71,7 @@ const Game = () => {
               Attack</button>
           )}
 
-          {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen} testCases={testCases} setTestCases={setTestCases} question={question} function={func}/>}
+          {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen} testCases={testCases} setTestCases={setTestCases} question={question} function={func} setIsAttackButtonDisabled={setIsAttackButtonDisabled}/>}
 
           {isGameStarted && !editorOpen &&(
             <motion.button
