@@ -3,6 +3,8 @@ import React, {useState} from 'react'
 import { motion } from 'framer-motion'
 import axios from 'axios';
 
+
+
 import  NewEditor  from '../NewEditor'
 
 const EditorWrapper = (props) => {
@@ -11,7 +13,7 @@ const EditorWrapper = (props) => {
   
     const handleClick = async (e) => {
       e.preventDefault();
-      const response = await axios.post('http://localhost:3000/python', {code}).then((data) => {
+      const response = await axios.post('', {code}).then((data) => {
       console.log(data.data[0]);  
       props.setTestCases(data.data[0])
       if(props.testCases === 'True'){

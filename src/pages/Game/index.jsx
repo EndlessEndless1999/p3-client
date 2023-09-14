@@ -32,7 +32,7 @@ const Game = () => {
   };
 
   const handleLaunchCodeClick = async () => {
-    const response = await fetch('http://localhost:3000/question')
+    const response = await fetch('https://amazingapp.tplinkdns.com/users/code')
     const data = await response.json();
     console.log(data);
     console.log('launch code clicked');
