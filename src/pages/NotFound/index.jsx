@@ -2,7 +2,20 @@ import React from 'react'
 
 const NotFound = () => {
   return (
-    <div>NotFound</div>
+    <>
+      <div className="notFound">
+        <h1 className="notFoundHeader">404! Page Not Found!</h1>
+        <a href="/">
+          <button
+            className="notFoundButton"
+          >
+            Home
+          </button>
+        </a>
+      </div>
+      
+      
+    </>
   )
 }
 
