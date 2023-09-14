@@ -38,10 +38,10 @@ const Game = () => {
     const data = await response.json();
     console.log(data);
     console.log('launch code clicked');
-    setQuestion(data.question);
-    setFunc(data.funcName);
-    setId(data._id);
-    setTests(data.tests);
+    setQuestion(data.codeSnippet.question);
+    setFunc(data.codeSnippet.funcName);
+    setId(data.codeSnippet._id);
+    setTests(data.codeSnippet.tests);
     setStartTimer(true);
     setEditorOpen(true);
   };
