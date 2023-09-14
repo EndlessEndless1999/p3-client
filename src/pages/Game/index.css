@@ -13,7 +13,8 @@
 }
 
 h4 {
-    bottom: 50%
+    bottom: 50%;
+    font-size: 1.5rem;
 }
 
 .submit-btn {

@@ -75,7 +75,7 @@ const Game = () => {
               Attack</button>
           )}
 
-          {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen} testCases={testCases} setTestCases={setTestCases} question={question} function={func} setIsAttackButtonDisabled={setIsAttackButtonDisabled}/>}
+          {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen} testCases={testCases} setTestCases={setTestCases} question={question} function={func} setIsAttackButtonDisabled={setIsAttackButtonDisabled} id={id}/>}
 
           {isGameStarted && !editorOpen &&(
             <motion.button

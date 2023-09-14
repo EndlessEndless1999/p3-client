@@ -13,13 +13,17 @@ const EditorWrapper = (props) => {
   
     const handleClick = async (e) => {
       e.preventDefault();
-      const response = await axios.post('', {code}).then((data) => {
-      console.log(data.data[0]);  
-      props.setTestCases(data.data[0])
-      if(props.testCases === 'True'){
-        setCode('');
+      const response = await axios.post('https://amazingapp.tplinkdns.com/users/code', {code: code, _id: props.id}).then((data) => {
+      console.log(data.result);  
+      props.setTestCases(data.result)
+      if(props.testCases === 'correct'){
+        setCode('')
         props.setEditorOpen(false)
         props.setIsAttackButtonDisabled(false)
+      }else if (props.testCases === 'incorrect'){
+        alert(data.result)
+      }else{
+        alert(data.error)
       }
       console.log(props.testCases);
     })
