@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 import { Timer, Player, Enemy, Logger, EditorWrapper } from '../../components';
 import { checkIsGameOver, initializeGame, startEncounter} from '../../lib/initFunctions';
@@ -10,7 +10,8 @@ const Game = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isAttackButtonDisabled, setIsAttackButtonDisabled] = useState(false);
   const [startTimer, setStartTimer] = useState(false);
-  const [editorOpen, setEditorOpen] = useState(false)
+  const [editorOpen, setEditorOpen] = useState(false);
+  const [question, setQuestion] = useState('');
   const [testCases, setTestCases] = useState('');
 
   useEffect(() => {
@@ -30,8 +31,12 @@ const Game = () => {
     handlePlayerAttack();
   };
 
-  const handleLaunchCodeClick = () => {
+  const handleLaunchCodeClick = async () => {
+    const response = await fetch('http://localhost:3000/question')
+    const data = await response.json();
+    console.log(data);
     console.log('launch code clicked');
+    setQuestion(data.title);
     setStartTimer(true);
     setEditorOpen(true);
   };
@@ -65,7 +70,7 @@ const Game = () => {
               Attack</button>
           )}
 
-          {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen} testCases={testCases} setTestCases={setTestCases}/>}
+          {editorOpen && <EditorWrapper editorOpen={editorOpen} setEditorOpen={setEditorOpen} testCases={testCases} setTestCases={setTestCases} question={question}/>}
 
           <motion.button
            onClick={handleLaunchCodeClick}
