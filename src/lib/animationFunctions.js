@@ -1,3 +1,4 @@
+// Player animations
 function removePlayerAnimationClass(className) {
     const playerAnimate = document.getElementById('player');
     playerAnimate.classList.remove(className);
@@ -32,6 +33,12 @@ function renderPlayerDead() {
 
 }
 
+function resetPlayerAnimation() {
+    const playerAnimate = document.getElementById('player');
+    playerAnimate.classList.remove('dead'); 
+}
+
+// Enemy animations
 function removeEnemyAnimationClass(className) {
     const enemyAnimate = document.getElementById('enemy');
     enemyAnimate.classList.remove(className);
@@ -63,9 +70,14 @@ function renderEnemyDead() {
     const enemyAnimate = document.getElementById('enemy');
     enemyAnimate.classList.remove('dying'); 
     enemyAnimate.classList.add('dead'); 
+}
 
+function resetEnemyAnimation() {
+    const enemyAnimate = document.getElementById('enemy');
+    enemyAnimate.classList.remove('dead'); 
 }
 
 export { 
-    renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation,
-    renderEnemyAttackAnimation, renderEnemyHitAnimation, renderEnemyDyingAnimation }
+    renderPlayerAttackAnimation, renderPlayerHitAnimation, renderPlayerDyingAnimation, resetPlayerAnimation,
+    renderEnemyAttackAnimation, renderEnemyHitAnimation, renderEnemyDyingAnimation, resetEnemyAnimation
+}
