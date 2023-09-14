@@ -4,7 +4,7 @@
     width: 60px;
     height: 40px;
     transform: scale(3);
-    background-image: url('./sprites/pirate-idle.png');
+    background-image: url('../sprites/pirate-idle.png');
     background-repeat: no-repeat;
     position: absolute;
     animation: enemyIdle 0.6s steps(6) infinite;
@@ -16,7 +16,7 @@
 }
 
 #enemy.attack {
-    background-image: url('./sprites/pirate-attack.png');
+    background-image: url('../sprites/pirate-attack.png');
     animation: enemyAttack 0.6s steps(6) 1;
 }
 
@@ -26,7 +26,7 @@
 }
 
 #enemy.hit {
-    background-image: url('./sprites/pirate-hit.png');
+    background-image: url('../sprites/pirate-hit.png');
     animation: enemyHit 0.4s steps(4) 1;
 }
 
@@ -36,7 +36,7 @@
 }
 
 #enemy.dying {
-    background-image: url('./sprites/pirate-dying.png');
+    background-image: url('../sprites/pirate-dying.png');
     animation: enemyDying 0.8s steps(8) 1;
 }
 
@@ -46,7 +46,7 @@
 }
 
 #enemy.dead {
-    background-image: url('./sprites/pirate-dying.png');
+    background-image: url('../sprites/pirate-dying.png');
     animation: none;
     background-position: -420px 0;
 }

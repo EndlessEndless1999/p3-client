@@ -11,6 +11,8 @@
 table {
   width: 100rem;
   border-collapse: collapse;
+  text-align: center;
+  font-size: 1rem;
 }
 
 th, td {
@@ -20,4 +22,8 @@ th, td {
 th {
   background-color: #000F08;
   color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }

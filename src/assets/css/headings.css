@@ -17,7 +17,7 @@ h2 {
     justify-content: center;
     font-family: 'Bungee', cursive;
     font-weight: 400;
-    font-size: 4rem;
+    font-size: 3rem;
     color: #FFC300;
     -webkit-text-stroke-width: 0.1rem;
     -webkit-text-stroke-color: #4D4847;
@@ -34,6 +34,8 @@ h3 {
     -webkit-text-stroke-width: 0.1rem;
     -webkit-text-stroke-color: #4D4847;
     line-height: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 0
 }
 
 h4 {
