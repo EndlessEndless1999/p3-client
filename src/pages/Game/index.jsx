@@ -10,6 +10,8 @@ import '../../assets/css/background.css'
 const Game = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isAttackButtonDisabled, setIsAttackButtonDisabled] = useState(false);
+  const [isStartGameButtonDisabled, setIsStartGameButtonDisabled] = useState(false);
+
   const [startTimer, setStartTimer] = useState(false);
   const [editorOpen, setEditorOpen] = useState(false);
   const [question, setQuestion] = useState('');
@@ -24,9 +26,10 @@ const Game = () => {
   }, []);
 
   const handleStartGameClick = () => {
+    setIsStartGameButtonDisabled(true);
     initializeGame();
     startEncounter();
-    setIsGameStarted(true);
+    setTimeout(() => setIsGameStarted(true), 2000);
   };
 
   const handleAttackClick = () => {
@@ -67,7 +70,8 @@ const Game = () => {
         <div className="code">
          
           {!isGameStarted && !editorOpen &&(
-            <button onClick={handleStartGameClick}>
+            <button onClick={handleStartGameClick}
+            disabled={isStartGameButtonDisabled}>
               Start Game</button>
           )}
           

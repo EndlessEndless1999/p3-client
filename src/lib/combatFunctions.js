@@ -59,8 +59,7 @@ function handlePlayerAttack() {
         enemyStats.currHP -= playerStats.attack;
         addMessageToLogger(`Buggy dealt ${playerStats.attack} damage!`)
         updateEnemyCurrHP(enemyStats.currHP)
-        setTimeout(() => updateEnemyHealthbar(), 300);
-        setTimeout(() => updateEnemyHealthbar(), 300);
+        // setTimeout(() => updateEnemyHealthbar(), 300);
     
         if (enemyStats.currHP <= 0) {
             setTimeout(() => renderEnemyDyingAnimation(), 300);
@@ -87,8 +86,7 @@ function enemyTurn() {
         playerStats.currHP -= enemyStats.attack;
         addMessageToLogger(`Enemy attacked and dealt ${playerStats.attack} damage!`)
         updatePlayerCurrHP(playerStats.currHP);
-        setTimeout(() => updatePlayerHealthbar(), 100);
-        setTimeout(() => updatePlayerHealthbar(), 100);
+        // setTimeout(() => updatePlayerHealthbar(), 100);
 
         if (playerStats.currHP <= 0) {
             setTimeout(() => renderPlayerDyingAnimation(), 500);
@@ -123,6 +121,7 @@ function updatePlayerCurrHP(newCurrHP) {
     playerStats.currHP = newCurrHP;
     sessionStorage.setItem('playerStats', JSON.stringify(playerStats));
     console.log('playerStats updated: ', (sessionStorage.getItem('playerStats')))
+    setTimeout(() => updatePlayerHealthbar(), 100);
 }
 
 
@@ -131,6 +130,7 @@ function updateEnemyCurrHP(newCurrHP) {
     enemyStats.currHP = newCurrHP;
     sessionStorage.setItem('enemyStats', JSON.stringify(enemyStats));
     console.log('enemyStats updated: ', (sessionStorage.getItem('enemyStats')))
+    setTimeout(() => updateEnemyHealthbar(), 300);
 }
 
 
