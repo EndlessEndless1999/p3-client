@@ -17,6 +17,7 @@ const EditorWrapper = (props) => {
       if(props.testCases === 'True'){
         setCode('');
         props.setEditorOpen(false)
+        props.setIsAttackButtonDisabled(false)
       }
       console.log(props.testCases);
     })
