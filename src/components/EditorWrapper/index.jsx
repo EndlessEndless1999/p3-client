@@ -5,17 +5,20 @@ import axios from 'axios';
 
 import  NewEditor  from '../NewEditor'
 
-const EditorWrapper = () => {
+const EditorWrapper = (props) => {
 
     const [code, setCode] = useState();
-    const [testCases, setTestCases] = useState();
   
     const handleClick = async (e) => {
       e.preventDefault();
       const response = await axios.post('http://localhost:3000/python', {code}).then((data) => {
       console.log(data.data[0]);  
-      setTestCases(data.data[0])
-      console.log(testCases);
+      props.setTestCases(data.data[0])
+      if(props.testCases === 'True'){
+        setCode('');
+        props.setEditorOpen(false)
+      }
+      console.log(props.testCases);
     })
   
     }
@@ -49,7 +52,7 @@ const EditorWrapper = () => {
           animate="visible"
           exit="exit"
         >
-          <div>{testCases}</div>
+          <h4>Reverse a String!</h4>
           <NewEditor code={code} setCode={setCode}/>
           <button className='submit-btn' onClick={handleClick}>Submit</button>
         </motion.div>
