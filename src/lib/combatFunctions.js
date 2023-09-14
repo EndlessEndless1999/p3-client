@@ -58,8 +58,8 @@ function handlePlayerAttack() {
     
         enemyStats.currHP -= playerStats.attack;
         addMessageToLogger(`Buggy dealt ${playerStats.attack} damage!`)
-        updateEnemyCurrHP(enemyStats.currHP)
-        // setTimeout(() => updateEnemyHealthbar(), 300);
+        setTimeout(() => updateEnemyCurrHP(enemyStats.currHP), 100)
+
     
         if (enemyStats.currHP <= 0) {
             setTimeout(() => renderEnemyDyingAnimation(), 300);
@@ -76,7 +76,7 @@ function handlePlayerAttack() {
 
 function enemyTurn() {
     renderEnemyAttackAnimation()
-    setTimeout(() => renderPlayerHitAnimation(), 100);
+    setTimeout(() => renderPlayerHitAnimation(), 300);
 
     const combatState = getCombatState();
     const playerStats = getPlayerStats();
@@ -85,8 +85,7 @@ function enemyTurn() {
     if (!combatState.isCombatOver && !combatState.isPlayerTurn) {
         playerStats.currHP -= enemyStats.attack;
         addMessageToLogger(`Enemy attacked and dealt ${playerStats.attack} damage!`)
-        updatePlayerCurrHP(playerStats.currHP);
-        // setTimeout(() => updatePlayerHealthbar(), 100);
+        setTimeout(() => updatePlayerCurrHP(playerStats.currHP), 300)
 
         if (playerStats.currHP <= 0) {
             setTimeout(() => renderPlayerDyingAnimation(), 500);
@@ -100,14 +99,14 @@ function enemyTurn() {
 }
 
 
-function switchTurn(enemy) {
+function switchTurn() {
     console.log('Switching turns...')
     const combatState = JSON.parse(sessionStorage.getItem('combatState'));
     combatState.isPlayerTurn = !combatState.isPlayerTurn;
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
 
     if (!combatState.isPlayerTurn) {
-        setTimeout(() => enemyTurn(enemy), 1500);
+        setTimeout(() => enemyTurn(), 1500);
     }
 
     else {
