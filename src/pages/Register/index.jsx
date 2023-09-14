@@ -11,7 +11,7 @@ const Register = () => {
   };
 
   return (
-    <div className="register">
+    <div className="account">
       <h2>Register</h2>
       <div className="email">
         <label htmlFor="email">Email:</label>
@@ -40,7 +40,12 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <button onClick={handleRegister}>Register</button>
+      <button 
+        onClick={handleRegister}
+        className="accountButton"
+      >
+        Register
+      </button>
 
       <div>
         <NavLink to="/login">Already got an account? Login!</NavLink>

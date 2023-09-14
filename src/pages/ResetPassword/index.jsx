@@ -10,7 +10,7 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="reset">
+    <div className="account">
       <h2>Reset Password</h2>
       <div className="password">
         <label htmlFor="password">New Password:</label>
@@ -30,7 +30,12 @@ const ResetPassword = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
       </div>
-      <button onClick={handleResetPassword}>Reset Password</button>
+      <button 
+        onClick={handleResetPassword}
+        className="accountButton"
+      >
+        Reset
+      </button>
       {message && <p>{message}</p>}
     </div>
   );
