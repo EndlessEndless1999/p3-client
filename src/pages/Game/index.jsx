@@ -14,6 +14,8 @@ const Game = () => {
   const [question, setQuestion] = useState('');
   const [testCases, setTestCases] = useState('');
   const [func, setFunc] = useState('');
+  const [id, setId] = useState('');
+  const [tests, setTests] = useState('');
 
   useEffect(() => {
     checkIsGameOver();
@@ -36,8 +38,10 @@ const Game = () => {
     const data = await response.json();
     console.log(data);
     console.log('launch code clicked');
-    setQuestion(data.title);
-    setFunc(data.func)
+    setQuestion(data.question);
+    setFunc(data.funcName);
+    setId(data._id);
+    setTests(data.tests);
     setStartTimer(true);
     setEditorOpen(true);
   };
