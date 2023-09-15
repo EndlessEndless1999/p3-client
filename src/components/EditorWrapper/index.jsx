@@ -5,29 +5,30 @@ import axios from 'axios';
 
 
 
-import  NewEditor  from '../NewEditor'
+import NewEditor  from '../NewEditor'
 
 const EditorWrapper = (props) => {
 
-    const [code, setCode] = useState();
+    const [code, setCode] = useState(null);
   
     const handleClick = async (e) => {
       e.preventDefault();
-      print(code, props.id);
-      const response = await axios.post('https://amazingapp.tplinkdns.com/users/code', {code: code, _id: props.id}).then((data) => {
-      console.log(data.result);  
-      props.setTestCases(data.result)
-      if(props.testCases === 'correct'){
+      
+      await axios.post('/users/code', {code: code, _id: props.id}).then((data) => {
+      
+      props.setTestCases(data.data.result)
+      console.log("ASDASD", data.status, data.data.result);
+      if(data.status === 200 && data.data.result === 'correct'){
         setCode('')
         props.setEditorOpen(false)
-        props.setIsAttackButtonDisabled(false)
-      }else if (props.testCases === 'incorrect'){
-        alert(data.result)
-      }else{
-        alert(data.error)
+        props.setIsAttackButtonDisabled(false) 
+      }else if (data.status === 200 && data.data.result === 'incorrect'){
+        alert(data.data.result)
+      }else {
+        alert(data.data.error)
       }
-      console.log(props.testCases);
-    })
+      
+    }).catch(err => console.log("ERROR:" + err))
   
     }
 
