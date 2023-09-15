@@ -61,7 +61,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <ReCAPTCHA ref={recaptchaRef} theme='dark' sitekey="6LfFmcsnAAAAAIxzLO5HlGhP8lONpoY9Z2r3Z2XU"/>
+      <ReCAPTCHA className="recaptcha" ref={recaptchaRef} theme='dark' sitekey="6LfFmcsnAAAAAIxzLO5HlGhP8lONpoY9Z2r3Z2XU"/>
       <div className="g-recaptcha" data-sitekey="6LfFmcsnAAAAAIxzLO5HlGhP8lONpoY9Z2r3Z2XU"></div>
       <button 
         onClick={handleLogin}
@@ -70,10 +70,10 @@ const Login = () => {
         Login
       </button>
 
-      <div>
-        <NavLink to="/register">Haven't got an account? Register now!</NavLink>
+      <div className="accountLinks">
+        <NavLink className="accountLinks" to="/register">Haven't got an account? Register now!</NavLink>
         <br />
-        <NavLink to="/forgot-password">Forgot password?</NavLink>
+        <NavLink className="accountLinks" to="/forgot-password">Forgot password?</NavLink>
       </div>
     </div>
   );

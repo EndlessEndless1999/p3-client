@@ -3,6 +3,20 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    font-size: 1.2rem;
+}
+
+.recaptcha {
+    margin-top: 1rem;
+}
+
+.account input {
+    display: flex;
+    width: 20rem;
+    padding: 0.5rem; 
+    font-size: 1rem; 
+    margin-bottom: 1rem;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .accountButton {
@@ -11,4 +25,22 @@
     font-size: 1rem;
     width: 6rem;
     height: 3rem;
+    box-shadow: 5px 5px;
+}
+
+.accountButton:hover {
+    transform: translateY(2px);
+    box-shadow: 3px 3px;
+}
+
+.accountLinks {
+    margin-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    line-height: 0.7rem;
+    color: #000F08;
+}
+
+.accountLinks:hover {
+    color: #D90429;
 }

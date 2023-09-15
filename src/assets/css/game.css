@@ -46,7 +46,12 @@ img {
   color: #008000;
 }
 
+.code {
+  height: 96%;
+}
+
 .logs {
   flex-direction: column;
   text-align: left;
+  padding-left: 0;
 }

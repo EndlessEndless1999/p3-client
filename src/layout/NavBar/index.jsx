@@ -11,13 +11,13 @@ const NavBar = () => {
       <nav
         className={`NavBar ${isHomePage ? 'hidden' : ''} ${!isGamePage ? 'hovered' : ''}`}
       >
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/game">Play</NavLink>
-        <NavLink to="/high-scores">High Scores</NavLink>
-        <NavLink to="/help">Help</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/register">Register</NavLink>
+        <NavLink className="NavLink" to="/">Home</NavLink>
+        <NavLink className="NavLink" to="/game">Play</NavLink>
+        <NavLink className="NavLink" to="/high-scores">High Scores</NavLink>
+        <NavLink className="NavLink" to="/help">Help</NavLink>
+        <NavLink className="NavLink" to="/about">About</NavLink>
+        <NavLink className="NavLink" to="/login">Login</NavLink>
+        <NavLink className="NavLink" to="/register">Register</NavLink>
       </nav>
       <Outlet />
     </>

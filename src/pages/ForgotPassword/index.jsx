@@ -5,7 +5,7 @@ const ForgotPassword = () => {
   const [message, setMessage] = useState('');
 
   const handleResetPassword = () => {
-    setMessage('Password reset instructions sent to your email?');
+    setMessage('Password reset instructions sent to your email');
   };
 
   return (

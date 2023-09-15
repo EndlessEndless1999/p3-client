@@ -77,7 +77,7 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <ReCAPTCHA ref={recaptchaRef} theme='dark' sitekey="6LfFmcsnAAAAAIxzLO5HlGhP8lONpoY9Z2r3Z2XU"/>
+      <ReCAPTCHA  className="recaptcha" ref={recaptchaRef} theme='dark' sitekey="6LfFmcsnAAAAAIxzLO5HlGhP8lONpoY9Z2r3Z2XU"/>
       
       <button 
         onClick={handleRegister}
@@ -86,8 +86,8 @@ const Register = () => {
         Register
       </button>
       
-      <div>
-        <NavLink to="/login">Already got an account? Login!</NavLink>
+      <div className="accountLinks">
+        <NavLink className="accountLinks" to="/login">Already got an account? Login!</NavLink>
       </div>
     </div>
   );
