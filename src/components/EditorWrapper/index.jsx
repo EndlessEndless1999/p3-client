@@ -2,6 +2,7 @@
 import React, {useState} from 'react'
 import { motion } from 'framer-motion'
 import axios from 'axios';
+import { addMessageToLogger } from '../../lib/loggerUtils';
 
 
 
@@ -21,6 +22,7 @@ const EditorWrapper = (props) => {
         setCode('')
         props.setEditorOpen(false)
         props.setIsAttackButtonDisabled(false)
+        addMessageToLogger('Command accepted!')
       }else if (props.testCases === 'incorrect'){
         alert(data.result)
       }else{

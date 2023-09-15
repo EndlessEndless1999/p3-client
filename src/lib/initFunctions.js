@@ -54,10 +54,10 @@ async function startEncounter() {
     switch (encounterData.type) {
         
         case "checkpoint":
-            // handleCheckpointEncounter();
+            // handleCheckpointEncounter(); not implemented yet
             break;
         case "traversal":
-            // handleTraversalEncounter();
+            // handleTraversalEncounter(); not implemented yet
             break;
         case "combat":
             addMessageToLogger(encounterData.text)

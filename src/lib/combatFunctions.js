@@ -41,7 +41,7 @@ function playerTurn() {
     const combatState = getCombatState();
 
     if (!combatState.isCombatOver && combatState.isPlayerTurn) {
-        // some logic
+        // some logic not implemented yet
     }
 }
 
