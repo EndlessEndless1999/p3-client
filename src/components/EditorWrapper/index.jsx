@@ -71,7 +71,7 @@ const EditorWrapper = (props) => {
           animate="visible"
           exit="exit"
         >
-          <h4>{props.question}</h4>
+          <h5>{props.question}</h5>
           <NewEditor code={code} setCode={setCode} function={props.function}/>
           <button className='submit-btn' onClick={handleClick}>Submit</button>
         </motion.div>
