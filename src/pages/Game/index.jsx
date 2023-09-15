@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 import { motion } from 'framer-motion'
 
 import { Timer, Player, Enemy, Logger, EditorWrapper, Background } from '../../components';
@@ -7,7 +9,9 @@ import { displayStats, handlePlayerAttack } from '../../lib/combatFunctions';
 import './index.css'
 import '../../assets/css/background.css'
 
+
 const Game = () => {
+
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isAttackButtonDisabled, setIsAttackButtonDisabled] = useState(false);
   const [isStartGameButtonDisabled, setIsStartGameButtonDisabled] = useState(false);
@@ -19,11 +23,21 @@ const Game = () => {
   const [func, setFunc] = useState('');
   const [id, setId] = useState('');
   const [tests, setTests] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     checkIsGameOver();
     displayStats();
   }, []);
+
+  useEffect(() => {
+    axios.post(`/users/ping`).then((data) => {
+      if(data.status !== 200){
+        navigate("login")
+      }
+    })
+  }, [navigate])
+
 
   const handleStartGameClick = () => {
     setIsStartGameButtonDisabled(true);

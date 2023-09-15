@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, createContext } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import * as Pages from './pages'
@@ -6,13 +6,11 @@ import { NavBar } from './layout'
 
 import './assets/style.css'
 
+
 function App() {
-
-
 
   return (
     <>
-      
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Pages.Home />} />
@@ -25,7 +23,7 @@ function App() {
           <Route path="/forgot-password" element={<Pages.ForgotPassword />} />
           <Route path="/reset-password" element={<Pages.ResetPassword />} />
           <Route path="*" element={<Pages.NotFound />} />
-      </Route>
+        </Route>
       </Routes>
     </>
   )
