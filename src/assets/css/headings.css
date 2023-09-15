@@ -49,3 +49,15 @@ h4 {
     -webkit-text-stroke-color: #D90429;
     line-height: 1rem;
 }
+
+h5 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Bungee', cursive;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #000F08;
+    -webkit-text-stroke-width: 0.1rem;
+    -webkit-text-stroke-color: #D90429;
+    line-height: 1rem;
+}
