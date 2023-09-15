@@ -22,11 +22,12 @@ const EditorWrapper = (props) => {
       if(data.status === 200 && data.data.result === 'correct'){
         setCode('')
         props.setEditorOpen(false)
-        props.setIsAttackButtonDisabled(false) 
-      }else if (data.status === 200 && data.data.result === 'incorrect'){
-        alert(data.data.result)
-      }else {
-        alert(data.data.error)
+        props.setIsAttackButtonDisabled(false)
+        addMessageToLogger('Command accepted!')
+      }else if (props.testCases === 'incorrect'){
+        alert(data.result)
+      }else{
+        alert(data.error)
       }
       
     }).catch(err => console.log("ERROR:" + err))

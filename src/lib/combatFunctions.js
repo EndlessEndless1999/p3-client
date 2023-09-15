@@ -19,6 +19,7 @@ function handleCombatEncounter(encounterData) {
     sessionStorage.setItem('combatState', JSON.stringify(combatState));
     initializeEnemy(encounterData);
     resetEnemyAnimation();
+    updateEnemyHealthbar();
     playerTurn();
 }
 
