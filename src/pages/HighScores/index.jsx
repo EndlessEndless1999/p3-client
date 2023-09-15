@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const HighScores = () => {
-  const highScoresData = [
-    { name: 'Player 1', score: 1000 },
-    { name: 'Player 2', score: 900 },
-    { name: 'Player 3', score: 800 },
-    { name: 'Player 4', score: 700 },
-    { name: 'Player 5', score: 600 },
-  ];
+  const [highScores, setHighScores] = useState(null);
+
+  useEffect(() => {
+    const fetchHighScores = async () => {
+      const response = await axios.get('/users/leaderboard');
+      console.log(response.data);
+      setHighScores(response.data.scoreboard);
+    };
+    fetchHighScores();
+  }, []);
 
   return (
     <div className="highScores">
@@ -22,10 +26,10 @@ const HighScores = () => {
             </tr>
           </thead>
           <tbody>
-            {highScoresData.map((score, index) => (
+            {highScores && highScores.map((score, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td>{score.name}</td>
+                <td>{score.username}</td>
                 <td>{score.score}</td>
               </tr>
             ))}
