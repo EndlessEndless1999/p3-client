@@ -29,7 +29,7 @@ const ForgotPassword = () => {
       .then((response) => {
         console.log(JSON.stringify(response.data));
         if(response.status === 200){
-          setMessage("Password reset instructions sent to your email: + + response.data.emailClient")
+          setMessage("Password reset instructions sent to your email: "+ response.data.emailClient);
         } else {
           setMessage(data.error)
         }

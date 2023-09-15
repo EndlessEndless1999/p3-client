@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
@@ -29,7 +29,11 @@ const Login = () => {
 
     axios.request(config)
       .then((response) => {
-          console.log(JSON.stringify(response.data));
+          if(response.data.status === "success"){
+            useNavigate('/game');
+          }else{
+            recaptchaRef.current.reset();
+          }
           
       })
       .catch((error) => {
